@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'categorias/:category_slug/:slug', to: 'subcategories#show', as: :subcategory
 
   get 'blog', to: 'blog#index', as: :blog
-  get 'blog/:id', to: 'blog#show', as: :blog_post
+  get 'blog/:slug', to: 'blog#show', as: :blog_post
 
   get 'login', to: 'auth#login', as: :login
   get 'registro', to: 'auth#registro', as: :registro
