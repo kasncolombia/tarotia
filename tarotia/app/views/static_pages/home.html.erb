@@ -1,0 +1,118 @@
+<div class="p-8 space-y-8">
+  <!-- HEADER -->
+  <header class="flex items-center justify-between">
+    <div class="relative w-full max-w-xl">
+      <span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </span>
+      <input type="text" placeholder="Buscar cartas, lecturas, artículos..." class="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4 text-sm focus:outline-none focus:border-mystic-violet/50 focus:ring-4 focus:ring-mystic-violet/10 transition-all">
+      <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-1 text-[10px] text-zinc-500 bg-white/5 px-1.5 py-1 rounded border border-white/10">
+        <span>⌘</span><span>K</span>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-6">
+      <button class="relative text-zinc-400 hover:text-white transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+        <span class="absolute top-0 right-0 w-2 h-2 bg-rose-500 rounded-full"></span>
+      </button>
+      <div class="flex items-center gap-3">
+        <div class="text-right">
+          <p class="text-sm font-bold text-white leading-none">Alexandra</p>
+          <span class="text-[10px] text-mystic-gold font-bold uppercase">PRO</span>
+        </div>
+        <div class="w-10 h-10 rounded-full border-2 border-mystic-violet/30 p-0.5">
+          <img src="https://ui-avatars.com/api/?name=Alexandra&background=7C3AED&color=fff" class="w-full h-full rounded-full object-cover">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative h-[320px] rounded-[32px] overflow-hidden group">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#1A1B4B] via-mystic-violet/40 to-[#1A1B4B]"></div>
+    <div class="absolute inset-0 opacity-40 mix-blend-overlay scale-110 group-hover:scale-100 transition-transform duration-1000" 
+         style="background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center;"></div>
+    
+    <div class="relative h-full flex flex-col justify-center px-12 z-10">
+      <span class="text-mystic-violet font-bold text-sm mb-2 tracking-wide text-white uppercase">Bienvenida de nuevo, Alexandra 🌙</span>
+      <h2 class="text-5xl font-bold max-w-2xl leading-tight mb-6 text-white">
+        Descubre tu destino con el poder del <span class="bg-gradient-to-r from-mystic-violet to-cyan-400 bg-clip-text text-transparent">Tarot IA</span>
+      </h2>
+      <p class="text-zinc-300 max-w-lg mb-8 leading-relaxed">
+        Conecta con tu intuición y recibe guía personalizada a través de lecturas inteligentes generadas por IA.
+      </p>
+      <div class="flex gap-4">
+        <button class="px-8 py-3 bg-mystic-violet text-white font-bold rounded-2xl shadow-xl shadow-mystic-violet/30 hover:scale-105 active:scale-95 transition-all">Nueva Lectura</button>
+        <button class="px-8 py-3 bg-white/10 backdrop-blur-md text-white font-bold rounded-2xl border border-white/10 hover:bg-white/20 transition-all">Tirada del Día</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRID DE TIPOS DE LECTURA -->
+  <section class="grid grid-cols-5 gap-4">
+    <% [
+      {title: 'Lectura Rápida', sub: '1 carta', icon: 'M13 10V3L4 14h7v7l9-11h-7z', desc: 'Respuesta inmediata'},
+      {title: 'P, P, Futuro', sub: '3 cartas', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', desc: 'Claridad y perspectiva'},
+      {title: 'Cruz Celta', sub: '10 cartas', icon: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z', desc: 'Análisis profundo'},
+      {title: 'Amor', sub: 'Conexiones', icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z', desc: 'Relaciones y emociones', color: 'text-rose-400', bg: 'bg-rose-400/10'},
+      {title: 'Dinero', sub: 'Finanzas', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', desc: 'Abundancia y trabajo', color: 'text-emerald-400', bg: 'bg-emerald-400/10'}
+    ].each do |reading| %>
+      <div class="bg-[#1A1525] border border-white/5 rounded-3xl p-6 text-center hover:border-mystic-violet/30 hover:bg-mystic-violet/5 hover:-translate-y-1 transition-all group cursor-pointer">
+        <div class="w-12 h-12 <%= reading[:bg] || 'bg-mystic-violet/10' %> rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 <%= reading[:color] || 'text-mystic-violet' %>" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="<%= reading[:icon] %>"/></svg>
+        </div>
+        <h3 class="text-sm font-bold mb-1 text-white"><%= reading[:title] %></h3>
+        <p class="text-[10px] text-zinc-500 font-bold uppercase mb-2 tracking-tighter"><%= reading[:sub] %></p>
+        <p class="text-[11px] text-zinc-400 leading-tight"><%= reading[:desc] %></p>
+      </div>
+    <% end %>
+  </section>
+
+  <!-- ÚLTIMA LECTURA Y RECOMENDADOS -->
+  <div class="grid grid-cols-5 gap-6">
+    <div class="col-span-3 bg-[#1A1525]/50 border border-white/5 rounded-[32px] p-8">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-lg font-bold text-white">Tu última lectura</h3>
+        <a href="#" class="text-xs text-mystic-violet font-bold hover:underline">Ver todas ></a>
+      </div>
+      <div class="space-y-6">
+        <div class="flex items-center gap-4">
+          <span class="bg-mystic-violet/20 text-mystic-violet text-[11px] font-bold px-3 py-1 rounded-full border border-mystic-violet/30">Pasado, Presente, Futuro</span>
+          <span class="text-[11px] text-zinc-500">18 Mayo 2024</span>
+        </div>
+        <h4 class="text-2xl font-bold text-white">¿Qué viene para mí en el amor?</h4>
+        <div class="grid grid-cols-3 gap-4 py-4">
+          <% [
+            {label: 'Pasado', name: 'La Emperatriz'},
+            {label: 'Presente', name: 'Los Enamorados'},
+            {label: 'Futuro', name: 'El Mundo'}
+          ].each do |card| %>
+            <div class="relative aspect-[2/3] rounded-2xl overflow-hidden border border-white/10 bg-zinc-800 flex flex-col justify-end p-4">
+              <p class="text-[9px] font-bold text-zinc-400 uppercase"><%= card[:label] %></p>
+              <p class="text-sm font-bold text-white"><%= card[:name] %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-span-2 space-y-6">
+      <h3 class="text-lg font-bold text-white">Recomendado ✨</h3>
+      <div class="space-y-4">
+        <% [
+          {title: 'Significado de cada carta', cat: 'Guía'},
+          {title: 'Tarot para el amor', cat: 'Amor'}
+        ].each do |post| %>
+          <div class="flex gap-4 p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all cursor-pointer">
+            <div class="w-16 h-16 bg-zinc-800 rounded-xl"></div>
+            <div>
+              <h4 class="text-sm font-bold text-white"><%= post[:title] %></h4>
+              <span class="text-[10px] text-mystic-violet font-bold"><%= post[:cat] %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

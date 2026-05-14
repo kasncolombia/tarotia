@@ -1,0 +1,97 @@
+<div class="space-y-8 pb-12">
+  <!-- Profile Header -->
+  <div class="relative h-64 rounded-xl overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-night-800 to-primary-container/60"></div>
+    <div class="absolute inset-0 opacity-20 mix-blend-overlay" style="background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center;"></div>
+
+    <div class="absolute -bottom-16 left-8 flex items-end gap-6">
+      <div class="w-32 h-32 rounded-xl border-4 border-background overflow-hidden shadow-2xl bg-surface-container">
+        <img src="https://ui-avatars.com/api/?name=Alexandra&background=7C3AED&color=fff&size=128" class="w-full h-full object-cover">
+      </div>
+      <div class="mb-12">
+        <h1 class="text-3xl font-bold text-white">Alexandra Doe</h1>
+        <p class="text-on-surface-variant flex items-center gap-2 font-body-sm text-body-sm">
+          <span class="w-2 h-2 bg-emerald-abundance rounded-full"></span>
+          Exploradora Astral • Miembro desde Mayo 2024
+        </p>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 right-8 flex gap-3">
+      <button class="px-5 py-2.5 bg-surface-container/70 backdrop-blur-md border border-white/10 rounded-lg text-on-surface font-body-sm text-body-sm font-medium hover:bg-white/10 transition-all">Editar Perfil</button>
+      <button class="px-5 py-2.5 bg-gold-mystic text-on-tertiary-fixed rounded-lg font-body-sm text-body-sm font-bold shadow-lg hover:brightness-110 transition-all">Suscripción PRO</button>
+    </div>
+  </div>
+
+  <!-- Profile Content -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mt-20">
+    <!-- Col 1: Info -->
+    <div class="space-y-6">
+      <div class="glass-card rounded-xl p-6">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-6">Información Personal</h3>
+        <div class="space-y-5">
+          <div>
+            <p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Email</p>
+            <p class="font-body-md text-body-md text-on-surface">alexandra@universo.com</p>
+          </div>
+          <div>
+            <p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Signo Solar</p>
+            <p class="font-body-md text-body-md text-on-surface">Escorpio ♏</p>
+          </div>
+          <div>
+            <p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Idioma</p>
+            <p class="font-body-md text-body-md text-on-surface">Español (Latam)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-xl p-6">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-6">Estadísticas</h3>
+        <div class="space-y-4">
+          <div class="flex justify-between items-center">
+            <span class="font-body-md text-body-md text-on-surface-variant">Lecturas totales</span>
+            <span class="font-headline-sm text-headline-sm text-primary font-bold">32</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="font-body-md text-body-md text-on-surface-variant">Racha actual</span>
+            <span class="font-headline-sm text-headline-sm text-cyan-ethereal font-bold">15 días</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="font-body-md text-body-md text-on-surface-variant">Precisión IA</span>
+            <span class="font-headline-sm text-headline-sm text-emerald-abundance font-bold">98%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Col 2 & 3: Activity -->
+    <div class="lg:col-span-2 space-y-6">
+      <div class="glass-card rounded-xl p-6">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Historial de Lecturas</h3>
+          <button class="font-label-mono text-label-mono text-primary hover:text-primary-fixed transition-colors uppercase">Filtrar</button>
+        </div>
+        <div class="space-y-4">
+          <% [
+            {t: '¿Tendré éxito en mi nuevo proyecto?', d: 'Hoy, 10:30 AM', type: 'Cruz Celta'},
+            {t: 'Energía semanal del amor', d: 'Ayer, 08:15 PM', type: 'P, P, Futuro'},
+            {t: 'Tirada de claridad financiera', d: '12 May, 11:20 AM', type: '1 Carta'}
+          ].each do |item| %>
+            <div class="flex items-center justify-between p-4 bg-surface-container/50 rounded-lg hover:bg-surface-container transition-all cursor-pointer group">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-primary">auto_stories</span>
+                </div>
+                <div>
+                  <h4 class="font-body-md text-body-md font-medium text-on-surface"><%= item[:t] %></h4>
+                  <p class="font-label-mono text-label-mono text-on-surface-variant uppercase"><%= item[:d] %></p>
+                </div>
+              </div>
+              <span class="font-label-mono text-label-mono text-outline bg-surface-container-highest/50 px-3 py-1.5 rounded-full border border-white/5"><%= item[:type] %></span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="space-y-gutter pb-12">
+  <!-- Header -->
+  <header class="w-full pt-8 pb-4">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2">Explorar Categorías</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Explora los reinos místicos y descubre lecturas adaptadas a tu camino de vida actual y consultas espirituales.</p>
+      </div>
+      <!-- Search & Filter -->
+      <div class="flex items-center gap-3 w-full md:w-auto">
+        <div class="relative flex-1 md:w-64">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+          <input class="w-full bg-surface-container-high/50 border border-white/10 rounded-lg pl-10 pr-4 py-2.5 font-body-sm text-body-sm text-on-surface placeholder-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all backdrop-blur-sm" placeholder="Buscar categorías..." type="text"/>
+        </div>
+        <button class="bg-surface-container-high/50 border border-white/10 p-2.5 rounded-lg text-on-surface-variant hover:text-primary hover:border-primary/50 transition-all backdrop-blur-sm flex items-center justify-center">
+          <span class="material-symbols-outlined text-[20px]">tune</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Categories Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-8">
+    <% @categories.each do |category| %>
+      <% 
+        color_map = {
+          'amor' => { color: 'rose-passion', icon: 'favorite' },
+          'dinero' => { color: 'emerald-abundance', icon: 'payments' },
+          'espíritu' => { color: 'primary', icon: 'self_improvement' },
+          'trabajo' => { color: 'gold-mystic', icon: 'work' },
+          'salud' => { color: 'cyan-ethereal', icon: 'spa' }
+        }
+        matched = color_map.find { |k, v| category.name.downcase.include?(k) }
+        theme = matched ? matched[1] : { color: 'primary', icon: 'auto_awesome' }
+      %>
+      <a class="glass-card rounded-xl p-6 group relative overflow-hidden flex flex-col h-full min-h-[240px]" href="<%= category_path(category.slug) %>">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-<%= theme[:color] %>/10 rounded-full blur-3xl -mr-10 -mt-10 transition-all group-hover:scale-125"></div>
+        <div class="flex justify-between items-start mb-6 relative z-10">
+          <div class="w-12 h-12 rounded-lg bg-surface-container-highest border border-<%= theme[:color] %>/20 flex items-center justify-center text-<%= theme[:color] %> group-hover:scale-110 transition-transform duration-300">
+            <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;"><%= theme[:icon] %></span>
+          </div>
+          <div class="bg-surface-container/50 border border-white/5 px-2.5 py-1 rounded-full flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[14px] text-<%= theme[:color] %>">auto_stories</span>
+            <span class="font-label-mono text-label-mono text-on-surface-variant"><%= category.subcategories.count %></span>
+          </div>
+        </div>
+        <div class="flex-1 relative z-10">
+          <h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-<%= theme[:color] %> transition-colors"><%= category.name %></h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Explora lecturas profundas y guía ancestral enfocada en <%= category.name.downcase %>.</p>
+        </div>
+        <div class="mt-6 flex items-center text-<%= theme[:color] %> font-label-mono text-label-mono opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 relative z-10">
+          <span class="uppercase tracking-widest mr-2">Explorar Reino</span>
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>

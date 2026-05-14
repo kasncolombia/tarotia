@@ -1,0 +1,117 @@
+<aside class="w-[360px] bg-surface border-l border-white/5 flex flex-col p-8 overflow-y-auto shrink-0 custom-scrollbar fixed right-0 top-0 h-full z-40 hidden xl:flex">
+  <!-- 5.1 Energy of the Day Widget -->
+  <section class="mb-10">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-sm font-bold text-on-surface uppercase tracking-widest">Energía del día</h3>
+      <a href="#" class="text-[10px] text-primary font-bold hover:underline uppercase tracking-widest">Ver calendario ></a>
+    </div>
+    <div class="bg-gradient-to-br from-indigo-night-800/80 to-surface-dark/90 border border-white/10 rounded-[20px] p-8 text-center relative overflow-hidden group">
+      <div class="absolute -top-10 -left-10 w-24 h-24 bg-primary-container/10 blur-2xl rounded-full"></div>
+      <div class="mb-6 relative">
+        <div class="w-20 h-20 mx-auto bg-primary-container/20 rounded-full flex items-center justify-center border border-primary-container/30 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined !text-4xl text-primary-container animate-pulse">wb_sunny</span>
+        </div>
+      </div>
+      <p class="text-[11px] text-on-surface-variant uppercase tracking-widest mb-1">La energía de hoy favorece</p>
+      <h4 class="text-2xl font-bold text-gold-mystic mb-4">La Intuición</h4>
+      <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Confía en tu voz interior, es el momento de tomar decisiones importantes.</p>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-4 relative text-left">
+        <span class="material-symbols-outlined absolute top-3 left-3 text-white/10 text-base">format_quote</span>
+        <p class="text-[10px] font-bold text-on-surface-variant uppercase mb-2 ml-4">Consejo del día</p>
+        <p class="text-sm text-on-surface italic leading-relaxed">"Lo que hoy parece incierto, mañana tendrá sentido."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.2 Statistics Widget -->
+  <section class="mb-10">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-sm font-bold text-on-surface uppercase tracking-widest">Tus estadísticas</h3>
+      <a href="#" class="text-[10px] text-primary font-bold hover:underline uppercase tracking-widest">Ver todo</a>
+    </div>
+    <div class="grid grid-cols-2 gap-3">
+      <div class="bg-surface-container-low border border-white/5 rounded-xl p-4 text-center">
+        <p class="text-2xl font-bold text-primary-container leading-none mb-2">32</p>
+        <p class="text-[10px] text-on-surface-variant font-bold uppercase">Lecturas</p>
+      </div>
+      <div class="bg-surface-container-low border border-white/5 rounded-xl p-4 text-center">
+        <p class="text-2xl font-bold text-cyan-ethereal leading-none mb-2">15</p>
+        <p class="text-[10px] text-on-surface-variant font-bold uppercase">Días Racha</p>
+      </div>
+      <div class="bg-surface-container-low border border-white/5 rounded-xl p-4 text-center">
+        <p class="text-2xl font-bold text-gold-mystic leading-none mb-2">7</p>
+        <p class="text-[10px] text-on-surface-variant font-bold uppercase">Cartas</p>
+      </div>
+      <div class="bg-surface-container-low border border-white/5 rounded-xl p-4 text-center">
+        <p class="text-2xl font-bold text-emerald-abundance leading-none mb-2">98%</p>
+        <p class="text-[10px] text-on-surface-variant font-bold uppercase">Precisión</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5.3 Most Frequent Cards Widget -->
+  <section class="mb-10">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="text-sm font-bold text-on-surface uppercase tracking-widest">Cartas frecuentes</h3>
+      <a href="#" class="text-[10px] text-primary font-bold hover:underline uppercase tracking-widest">Ver todas</a>
+    </div>
+    <div class="space-y-4">
+      <% [
+        {name: 'El Sol', p: 25},
+        {name: 'La Luna', p: 19},
+        {name: 'La Estrella', p: 16}
+      ].each do |card| %>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-16 bg-surface-container-low border border-white/10 rounded-lg flex-shrink-0 flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary-container">auto_awesome</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-center mb-1">
+              <p class="text-sm font-bold text-on-surface truncate"><%= card[:name] %></p>
+              <span class="text-[10px] font-bold text-primary"><%= card[:p] %>%</span>
+            </div>
+            <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-primary-container to-cyan-ethereal" style="width: <%= card[:p] %>%"></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+
+  <!-- 5.4 Next Automatic Reading Widget -->
+  <section class="mb-10">
+    <div class="bg-gradient-to-br from-primary-container/10 to-cyan-ethereal/5 border border-primary-container/20 rounded-[20px] p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h4 class="text-xs font-bold text-on-surface uppercase tracking-widest">Lectura Automática</h4>
+        <a href="#" class="text-[10px] text-primary font-bold hover:underline uppercase tracking-widest">Configurar ></a>
+      </div>
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-12 h-12 bg-gold-mystic/15 rounded-xl flex items-center justify-center text-gold-mystic">
+          <span class="material-symbols-outlined">style</span>
+        </div>
+        <p class="text-[11px] text-on-surface-variant leading-relaxed">Recibe tu lectura diaria cada mañana en tu email.</p>
+      </div>
+      <button class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-xl text-[11px] uppercase tracking-widest hover:brightness-110 transition-all">Activar lectura diaria</button>
+    </div>
+  </section>
+
+  <!-- 5.5 Current Plan Widget -->
+  <section>
+    <div class="bg-surface-container-low border border-gold-mystic/20 rounded-[20px] p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h4 class="text-xs font-bold text-on-surface uppercase tracking-widest">Plan Actual</h4>
+        <a href="#" class="text-[10px] text-primary font-bold hover:underline uppercase tracking-widest">Detalles ></a>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gold-mystic/10 rounded-lg flex items-center justify-center text-gold-mystic">
+          <span class="material-symbols-outlined">workspace_premium</span>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-gold-mystic">Tarot PRO</p>
+          <p class="text-[10px] text-on-surface-variant">Renovación: 12 Jun 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</aside>
