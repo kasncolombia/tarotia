@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TAROT IA - Agenda Espiritual</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#2d2a5b",
+                    "on-secondary-container": "#b3afe9",
+                    "tertiary-container": "#a15100",
+                    "tertiary": "#ffb784",
+                    "surface-container": "#221d2e",
+                    "surface-container-high": "#2d2739",
+                    "on-background": "#e9def6",
+                    "tertiary-fixed": "#ffdcc6",
+                    "emerald-abundance": "#10B981",
+                    "on-primary": "#3f008e",
+                    "mystic-violet-950": "#2E1065",
+                    "surface-container-lowest": "#100b1b",
+                    "surface-container-low": "#1e1929",
+                    "surface-tint": "#d2bbff",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "surface-variant": "#383244",
+                    "on-secondary-fixed-variant": "#444173",
+                    "cyan-ethereal": "#06B6D4",
+                    "primary-fixed-dim": "#d2bbff",
+                    "on-surface-variant": "#ccc3d8",
+                    "outline-variant": "#4a4455",
+                    "outline": "#958da1",
+                    "indigo-night-700": "#4338CA",
+                    "rose-passion": "#F43F5E",
+                    "error": "#ffb4ab",
+                    "gold-mystic-400": "#FBBF24",
+                    "on-secondary-fixed": "#181445",
+                    "secondary-fixed-dim": "#c4c1fb",
+                    "on-primary-fixed": "#25005a",
+                    "on-surface": "#e9def6",
+                    "on-primary-fixed-variant": "#5a00c6",
+                    "tertiary-fixed-dim": "#ffb784",
+                    "secondary": "#c4c1fb",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#732ee4",
+                    "on-error": "#690005",
+                    "surface-dim": "#161121",
+                    "inverse-on-surface": "#332e3f",
+                    "secondary-container": "#444173",
+                    "indigo-night-800": "#312E81",
+                    "gold-mystic": "#F59E0B",
+                    "surface": "#161121",
+                    "on-tertiary-fixed": "#301400",
+                    "primary-container": "#7c3aed",
+                    "on-tertiary-container": "#ffe0cd",
+                    "inverse-surface": "#e9def6",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#eaddff",
+                    "mystic-violet-400": "#A78BFA",
+                    "background": "#161121",
+                    "on-primary-container": "#ede0ff",
+                    "surface-container-highest": "#383244",
+                    "surface-bright": "#3c3648",
+                    "primary": "#d2bbff",
+                    "mystic-violet-50": "#F5F3FF",
+                    "secondary-fixed": "#e3dfff",
+                    "on-tertiary": "#4f2500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "unit": "4px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-sm": ["Inter"],
+                    "label-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 z-50 w-full flex justify-between items-center px-margin-desktop py-4 bg-surface-container/70 backdrop-blur-xl border-b border-white/5 shadow-sm">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary">TAROT IA</span>
+</div>
+<div class="flex-1 max-w-xl mx-8 hidden md:block">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low/50 border border-outline-variant/30 rounded-lg py-2 pl-10 pr-4 text-on-surface focus:outline-none focus:border-primary transition-all" placeholder="Buscar cartas, lecturas, artículos..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">mail</button>
+<div class="flex items-center gap-3 pl-4 border-l border-white/10">
+<div class="text-right">
+<p class="text-body-sm font-semibold text-on-surface">Alexandra</p>
+<span class="text-[10px] px-2 py-0.5 bg-gold-mystic text-on-tertiary-fixed rounded-full font-bold">PRO</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img alt="Alexandra" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyKMNJnQRJku8MMlICyKAzZ8e2gKaQHKtSDfKbpzb4MITU587H6gGUwIOJ-aKx9O_udeeh-IjDT6O8U4TZNsvuCOqU5fLJ8Ixt4SLhk7dedQO--1CcYISzWnjbwuHuuZy9-nKIbv1sI6baRQ1KO3e3esW97ZaVgB_cAjTb4T9oAv1Synlz3Wtm_AS4oALtbO8bgZa4WgdDRNeRftV3lnFSCRfYhkLSmt4wE0gzFit-5KgxeQFyEopl-ozxiEyKwBoo_LJjM4mTvI45"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex pt-20">
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 h-[calc(100vh-80px)] w-64 bg-surface-container-low/70 backdrop-blur-xl border-r border-white/5 flex flex-col p-gutter gap-4 overflow-y-auto hidden md:flex">
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg transition-all translate-x-1 duration-300" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-body-sm text-body-sm">Oracle</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">style</span>
+<span class="font-body-sm text-body-sm">Readings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-sm text-body-sm">History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">collections</span>
+<span class="font-body-sm text-body-sm">Gallery</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-semibold shadow-xl" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-body-sm text-body-sm">Agenda Espiritual</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">psychology_alt</span>
+<span class="font-body-sm text-body-sm">AI Chat</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-white/5">
+<div class="p-4 bg-mystic-violet-950/40 rounded-xl border border-primary/20 mb-6">
+<p class="text-label-mono text-primary font-bold mb-2">TAROT PRO</p>
+<p class="text-[12px] text-on-surface-variant mb-4 leading-relaxed">Lecturas ilimitadas y consejos astrales personalizados.</p>
+<button class="w-full py-2 bg-gold-mystic text-on-tertiary-fixed rounded-lg font-bold text-sm shadow-lg shadow-gold-mystic/20">Upgrade Now</button>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-body-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-rose-passion/80 hover:text-rose-passion transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-body-sm">Logout</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 md:ml-64 p-margin-mobile md:p-margin-desktop">
+<!-- Page Header Area -->
+<div class="mb-8">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2">Agenda Espiritual</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Tu guía cósmica diaria. Monitorea las fases lunares, tránsitos planetarios y sincroniza tus lecturas con la energía universal.</p>
+</div>
+<!-- Dashboard Layout (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Calendar Section (Lvl 2 Card) -->
+<div class="md:col-span-8 flex flex-col gap-gutter">
+<div class="glass-card rounded-2xl p-6 min-h-[600px]">
+<div class="flex justify-between items-center mb-8">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Mayo 2024</h2>
+<div class="flex gap-2">
+<button class="p-1 hover:bg-white/10 rounded-full transition-colors material-symbols-outlined">chevron_left</button>
+<button class="p-1 hover:bg-white/10 rounded-full transition-colors material-symbols-outlined">chevron_right</button>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-label-mono text-cyan-ethereal">LUNA LLENA EN 4 DÍAS</span>
+<div class="w-8 h-8 rounded-full bg-cyan-ethereal/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-cyan-ethereal text-sm">brightness_4</span>
+</div>
+</div>
+</div>
+<!-- Calendar Header -->
+<div class="calendar-grid mb-4">
+<div class="text-center text-label-mono text-on-surface-variant py-2">LUN</div>
+<div class="text-center text-label-mono text-on-surface-variant py-2">MAR</div>
+<div class="text-center text-label-mono text-on-surface-variant py-2">MIÉ</div>
+<div class="text-center text-label-mono text-on-surface-variant py-2">JUE</div>
+<div class="text-center text-label-mono text-on-surface-variant py-2">VIE</div>
+<div class="text-center text-label-mono text-on-surface-variant py-2">SÁB</div>
+<div class="text-center text-label-mono text-on-surface-variant py-2">DOM</div>
+</div>
+<!-- Calendar Days -->
+<div class="calendar-grid gap-2 h-full">
+<!-- Previous month placeholder -->
+<div class="h-24 rounded-xl border border-white/5 opacity-30 p-2">
+<span class="text-sm font-body-sm">29</span>
+</div>
+<div class="h-24 rounded-xl border border-white/5 opacity-30 p-2">
+<span class="text-sm font-body-sm">30</span>
+</div>
+<!-- Current Month -->
+<!-- Day 1 -->
+<div class="h-24 rounded-xl border border-white/10 bg-white/5 p-2 group hover:border-primary/40 transition-colors relative cursor-pointer">
+<span class="text-sm font-body-sm">1</span>
+<div class="absolute bottom-2 right-2 flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-mystic-violet-400"></div>
+</div>
+</div>
+<!-- Days 2-17 (simplified) -->
+<div class="h-24 rounded-xl border border-white/5 p-2 group hover:border-primary/40 transition-colors">
+<span class="text-sm font-body-sm">2</span>
+</div>
+<div class="h-24 rounded-xl border border-white/5 p-2 group hover:border-primary/40 transition-colors">
+<span class="text-sm font-body-sm">3</span>
+<div class="mt-1 flex flex-wrap gap-1">
+<span class="material-symbols-outlined text-[14px] text-gold-mystic">star</span>
+</div>
+</div>
+<div class="h-24 rounded-xl border border-white/5 p-2 group hover:border-primary/40 transition-colors">
+<span class="text-sm font-body-sm">4</span>
+</div>
+<div class="h-24 rounded-xl border border-white/5 p-2 group hover:border-primary/40 transition-colors">
+<span class="text-sm font-body-sm">5</span>
+<div class="mt-1">
+<div class="w-2 h-2 rounded-full border border-cyan-ethereal"></div>
+</div>
+</div>
+<div class="h-24 rounded-xl border border-white/5 p-2 group hover:border-primary/40 transition-colors">
+<span class="text-sm font-body-sm">6</span>
+</div>
+<div class="h-24 rounded-xl border border-white/5 p-2 group hover:border-primary/40 transition-colors">
+<span class="text-sm font-body-sm">7</span>
+</div>
+<div class="h-24 rounded-xl border border-white/5 p-2 group hover:border-primary/40 transition-colors">
+<span class="text-sm font-body-sm">8</span>
+<div class="bg-primary/20 rounded px-1 py-0.5 mt-1">
+<p class="text-[8px] text-primary-fixed uppercase font-bold">Lectura</p>
+</div>
+</div>
+<!-- ... intermediate days ... -->
+<div class="h-24 rounded-xl border border-white/5 p-2 opacity-50"><span class="text-sm font-body-sm">...</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2 opacity-50"><span class="text-sm font-body-sm">...</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2 opacity-50"><span class="text-sm font-body-sm">...</span></div>
+<!-- Today -->
+<div class="h-24 rounded-xl border-2 border-primary bg-primary/10 p-2 shadow-[0_0_20px_rgba(124,58,237,0.2)]">
+<span class="text-sm font-bold text-primary">18</span>
+<p class="text-[9px] text-on-surface-variant leading-tight mt-1">Hoy: Mercurio Directo</p>
+<div class="mt-2 flex gap-1">
+<div class="w-4 h-4 rounded-full bg-gold-mystic flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-on-tertiary-fixed" data-weight="fill">auto_awesome</span>
+</div>
+</div>
+</div>
+<div class="h-24 rounded-xl border border-white/5 p-2 group hover:border-primary/40 transition-colors">
+<span class="text-sm font-body-sm">19</span>
+</div>
+<div class="h-24 rounded-xl border border-white/5 p-2 group hover:border-primary/40 transition-colors relative">
+<span class="text-sm font-body-sm">20</span>
+<span class="material-symbols-outlined absolute top-2 right-2 text-cyan-ethereal text-[16px]">brightness_3</span>
+</div>
+<!-- Continue days -->
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">21</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">22</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">23</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">24</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">25</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">26</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">27</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">28</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">29</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">30</span></div>
+<div class="h-24 rounded-xl border border-white/5 p-2"><span class="text-sm font-body-sm">31</span></div>
+</div>
+</div>
+<!-- Notas Espirituales Section -->
+<div class="glass-card rounded-2xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Notas Espirituales</h3>
+<button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+<span class="material-symbols-outlined text-sm">add_circle</span> Nueva Nota
+                            </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-mono text-gold-mystic uppercase">15 Mayo - Intuición</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">push_pin</span>
+</div>
+<p class="text-body-sm text-on-surface line-clamp-2">Hoy sentí una energía muy fuerte en el plexo solar durante la meditación. La carta del Ermitaño...</p>
+</div>
+<div class="p-4 bg-surface-container rounded-xl border border-white/5 hover:border-primary/30 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-mono text-cyan-ethereal uppercase">12 Mayo - Sueños</span>
+</div>
+<p class="text-body-sm text-on-surface line-clamp-2">Soñé con agua cristalina y una luna de plata. El tarot me sugiere fluir con las emociones...</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Content (Insights & Transits) -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Daily Insight Card -->
+<div class="glass-card rounded-2xl overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-mystic-violet-950/40 to-transparent"></div>
+<img class="w-full h-48 object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="A mystical digital painting of a glowing ethereal oracle eye surrounded by swirling cosmic dust and golden constellations. The lighting is dramatic, casting deep purples and vibrant gold hues across a dark, starry background. The overall aesthetic is high-fantasy and spiritual, emphasizing mystery and ancient wisdom in a modern digital style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOEJuOtoITsffjBVncJ7N6b3kCiNG1zvCuaiwCQDXk06Wt16xRomYnXYLsoOIw-0jY3dZZdbNA0YV2tdzlyl1LFBhh3-RxQDK-BLKjoYahwQI0YE9cSL9Kx_hF83tPKjArOEMNfZ_ga-qGw73mDAzJhHQK_d3aSelD716T3-IwqG5T75L8fh-SIzDDvoT_jmqTHiGcJMpXm8k9M3D5bc4MjifuPrfQYMGwBXMMvQWGOQ9TwaQU5owUptGSAOpxVHb4CMIrg5S0_pzC"/>
+<div class="p-6 relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-gold-mystic">lightbulb</span>
+<span class="text-label-mono text-gold-mystic font-bold uppercase tracking-widest">Insight Diario</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">La Fuerza Interior</h3>
+<p class="text-body-md text-on-surface-variant leading-relaxed">Hoy es un día para dominar tus impulsos con compasión. La luna en Leo favorece la expresión creativa pero requiere paciencia en las comunicaciones.</p>
+<div class="mt-6 pt-6 border-t border-white/10 flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border border-background bg-mystic-violet-400"></div>
+<div class="w-8 h-8 rounded-full border border-background bg-cyan-ethereal"></div>
+</div>
+<span class="text-label-mono text-[10px] text-on-surface-variant">Energía Alta</span>
+</div>
+</div>
+</div>
+<!-- Transitos Planetarios -->
+<div class="glass-card rounded-2xl p-6">
+<h3 class="text-label-mono text-primary font-bold uppercase mb-6 tracking-widest">Tránsitos del Momento</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-gold-mystic border border-white/5">
+<span class="material-symbols-outlined">wb_sunny</span>
+</div>
+<div>
+<h4 class="text-body-md font-bold text-on-surface">Sol en Tauro</h4>
+<p class="text-body-sm text-on-surface-variant">Enfoque en la estabilidad material y el disfrute sensorial.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary border border-white/5">
+<span class="material-symbols-outlined">nights_stay</span>
+</div>
+<div>
+<h4 class="text-body-md font-bold text-on-surface">Luna en Leo</h4>
+<p class="text-body-sm text-on-surface-variant">Necesidad de reconocimiento y autoexpresión dramática.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-emerald-abundance/10 flex items-center justify-center text-emerald-abundance border border-emerald-abundance/20">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<h4 class="text-body-md font-bold text-on-surface">Júpiter Conjunto Urano</h4>
+<p class="text-body-sm text-on-surface-variant">Cambios repentinos y grandes oportunidades de expansión.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 rounded-xl border border-white/10 text-body-sm font-semibold hover:bg-white/5 transition-colors">Ver Mapa Astral Completo</button>
+</div>
+<!-- Scheduled Readings -->
+<div class="glass-card rounded-2xl p-6 bg-gradient-to-b from-transparent to-primary/5">
+<h3 class="text-label-mono text-gold-mystic font-bold uppercase mb-6 tracking-widest">Próximas Sincronías</h3>
+<div class="space-y-4">
+<div class="p-3 rounded-xl border border-primary/20 bg-primary/5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Lectura Semanal</p>
+<p class="text-[10px] text-on-surface-variant">Mañana, 09:00 AM</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">more_vert</span>
+</div>
+<div class="p-3 rounded-xl border border-white/5 bg-white/5 flex items-center justify-between opacity-60">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">brightness_3</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Ritual de Luna Llena</p>
+<p class="text-[10px] text-on-surface-variant">22 Mayo, 10:00 PM</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">notifications_active</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface-container/90 backdrop-blur-xl border-t border-white/5 px-4 py-2 flex justify-around items-center z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[10px]">Oracle</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">style</span>
+<span class="text-[10px]">Lecturas</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-weight="fill">calendar_today</span>
+<span class="text-[10px] font-bold">Agenda</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">psychology_alt</span>
+<span class="text-[10px]">AI Chat</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px]">Perfil</span>
+</button>
+</nav>
+</body></html>

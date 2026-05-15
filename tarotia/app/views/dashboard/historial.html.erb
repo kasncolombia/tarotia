@@ -1,0 +1,72 @@
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+  <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-mystic-violet-950/30 rounded-full blur-[120px]"></div>
+  <div class="absolute top-[40%] -right-[10%] w-[50%] h-[50%] bg-indigo-night-800/20 rounded-full blur-[120px]"></div>
+</div>
+
+<div class="max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-8">
+  <div class="mb-8">
+    <a href="<%= root_path %>" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-6 group">
+      <span class="material-symbols-outlined text-lg">arrow_back</span>
+      <span class="text-xs uppercase tracking-widest font-bold">Volver al inicio</span>
+    </a>
+    <h2 class="text-4xl md:text-5xl font-bold text-on-surface mb-2">Historial de Lecturas</h2>
+    <p class="text-on-surface-variant">Todas tus consultas y revelaciones en un solo lugar.</p>
+  </div>
+
+  <!-- Stats -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+    <div class="glass-card p-4 rounded-xl text-center">
+      <p class="text-2xl font-bold text-primary">32</p>
+      <p class="text-xs text-on-surface-variant uppercase tracking-wider">Lecturas realizadas</p>
+    </div>
+    <div class="glass-card p-4 rounded-xl text-center">
+      <p class="text-2xl font-bold text-emerald-abundance">15</p>
+      <p class="text-xs text-on-surface-variant uppercase tracking-wider">Días de racha</p>
+    </div>
+    <div class="glass-card p-4 rounded-xl text-center">
+      <p class="text-2xl font-bold text-cyan-ethereal">7</p>
+      <p class="text-xs text-on-surface-variant uppercase tracking-wider">Cartas favoritas</p>
+    </div>
+    <div class="glass-card p-4 rounded-xl text-center">
+      <p class="text-2xl font-bold text-gold-mystic">98%</p>
+      <p class="text-xs text-on-surface-variant uppercase tracking-wider">Precisión IA</p>
+    </div>
+  </div>
+
+  <!-- Reading History -->
+  <div class="space-y-4">
+    <% [
+      { type: 'Pasado, Presente, Futuro', date: '18 Mayo 2024', question: '¿Qué viene para mí en el amor?', cards: 3 },
+      { type: 'Lectura Rápida', date: '15 Mayo 2024', question: '¿Debo cambiar de trabajo?', cards: 1 },
+      { type: 'Cruz Celta', date: '10 Mayo 2024', question: 'Visión general de mi vida', cards: 10 },
+      { type: 'Lectura de Amor', date: '5 Mayo 2024', question: '¿Volverá?', cards: 3 },
+      { type: 'Lectura de Dinero', date: '28 Abril 2024', question: '¿Invierto en este proyecto?', cards: 3 }
+    ].each do |reading| %>
+      <div class="glass-card p-5 rounded-xl hover:bg-white/5 transition-all cursor-pointer flex items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-primary">auto_stories</span>
+          </div>
+          <div>
+            <p class="font-bold text-on-surface"><%= reading[:question] %></p>
+            <div class="flex items-center gap-3 mt-1">
+              <span class="text-xs text-primary bg-primary/10 px-2 py-0.5 rounded-full"><%= reading[:type] %></span>
+              <span class="text-xs text-on-surface-variant"><%= reading[:date] %></span>
+              <span class="text-xs text-on-surface-variant"><%= reading[:cards] %> cartas</span>
+            </div>
+          </div>
+        </div>
+        <span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Pagination -->
+  <div class="flex items-center justify-center gap-2 mt-8">
+    <button class="w-10 h-10 rounded-xl bg-surface-variant/40 text-on-surface-variant flex items-center justify-center hover:bg-surface-variant/60 transition-all">1</button>
+    <button class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center font-bold">2</button>
+    <button class="w-10 h-10 rounded-xl bg-surface-variant/40 text-on-surface-variant flex items-center justify-center hover:bg-surface-variant/60 transition-all">3</button>
+    <span class="text-on-surface-variant px-2">...</span>
+    <button class="w-10 h-10 rounded-xl bg-surface-variant/40 text-on-surface-variant flex items-center justify-center hover:bg-surface-variant/60 transition-all">8</button>
+  </div>
+</div>

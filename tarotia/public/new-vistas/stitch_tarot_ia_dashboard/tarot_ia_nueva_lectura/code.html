@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#2d2a5b",
+                        "on-secondary-container": "#b3afe9",
+                        "tertiary-container": "#a15100",
+                        "tertiary": "#ffb784",
+                        "surface-container": "#221d2e",
+                        "surface-container-high": "#2d2739",
+                        "on-background": "#e9def6",
+                        "tertiary-fixed": "#ffdcc6",
+                        "emerald-abundance": "#10B981",
+                        "on-primary": "#3f008e",
+                        "mystic-violet-950": "#2E1065",
+                        "surface-container-lowest": "#100b1b",
+                        "surface-container-low": "#1e1929",
+                        "surface-tint": "#d2bbff",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "surface-variant": "#383244",
+                        "on-secondary-fixed-variant": "#444173",
+                        "cyan-ethereal": "#06B6D4",
+                        "primary-fixed-dim": "#d2bbff",
+                        "on-surface-variant": "#ccc3d8",
+                        "outline-variant": "#4a4455",
+                        "outline": "#958da1",
+                        "indigo-night-700": "#4338CA",
+                        "rose-passion": "#F43F5E",
+                        "error": "#ffb4ab",
+                        "gold-mystic-400": "#FBBF24",
+                        "on-secondary-fixed": "#181445",
+                        "secondary-fixed-dim": "#c4c1fb",
+                        "on-primary-fixed": "#25005a",
+                        "on-surface": "#e9def6",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "secondary": "#c4c1fb",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#732ee4",
+                        "on-error": "#690005",
+                        "surface-dim": "#161121",
+                        "inverse-on-surface": "#332e3f",
+                        "secondary-container": "#444173",
+                        "indigo-night-800": "#312E81",
+                        "gold-mystic": "#F59E0B",
+                        "surface": "#161121",
+                        "on-tertiary-fixed": "#301400",
+                        "primary-container": "#7c3aed",
+                        "on-tertiary-container": "#ffe0cd",
+                        "inverse-surface": "#e9def6",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#eaddff",
+                        "mystic-violet-400": "#A78BFA",
+                        "background": "#161121",
+                        "on-primary-container": "#ede0ff",
+                        "surface-container-highest": "#383244",
+                        "surface-bright": "#3c3648",
+                        "primary": "#d2bbff",
+                        "mystic-violet-50": "#F5F3FF",
+                        "secondary-fixed": "#e3dfff",
+                        "on-tertiary": "#4f2500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "label-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F0A1A;
+            color: #e9def6;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: linear-gradient(135deg, rgba(34, 29, 46, 0.7) 0%, rgba(30, 25, 41, 0.5) 100%);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .card-glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .card-glass:hover {
+            border-color: rgba(124, 58, 237, 0.4);
+            transform: translateY(-4px);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%);
+        }
+        .cosmic-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md antialiased">
+<!-- Background Blobs -->
+<div class="cosmic-glow top-[-100px] left-[-100px]"></div>
+<div class="cosmic-glow bottom-[-200px] right-[-100px] opacity-50"></div>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 h-full w-64 bg-surface-container-low/70 backdrop-blur-xl border-r border-white/5 shadow-xl flex flex-col p-6 gap-6 z-50">
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm text-mystic-violet-400 font-bold tracking-tight">TAROT IA</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tu destino, revelado</span>
+</div>
+<nav class="flex flex-col gap-1 flex-grow">
+<div class="text-on-surface-variant font-label-mono text-label-mono mb-2 px-3">PRINCIPAL</div>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-body-sm text-body-sm">Oracle</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary-container text-on-primary-container rounded-lg font-semibold shadow-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">style</span>
+<span class="font-body-sm text-body-sm">Readings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-sm text-body-sm">History</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">collections</span>
+<span class="font-body-sm text-body-sm">Gallery</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">psychology_alt</span>
+<span class="font-body-sm text-body-sm">AI Chat</span>
+</a>
+<div class="mt-8 text-on-surface-variant font-label-mono text-label-mono mb-2 px-3">SOPORTE</div>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-sm text-body-sm">Logout</span>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="w-full bg-gradient-to-r from-gold-mystic-400 to-gold-mystic p-4 rounded-xl text-surface-container-lowest font-bold text-body-md shadow-lg shadow-gold-mystic/20 hover:scale-[1.02] transition-transform">
+                    Upgrade Now
+                </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-grow">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full bg-surface-container/70 backdrop-blur-xl border-b border-white/5 px-8 py-4 flex justify-between items-center z-40">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold tracking-tight text-primary">TAROT IA</h1>
+<div class="h-6 w-[1px] bg-white/10 ml-2"></div>
+<div class="flex items-center gap-1 text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[20px]">magic_button</span>
+<span class="font-body-sm text-body-sm font-medium">Nueva Lectura</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-rose-passion rounded-full border-2 border-surface-container"></span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">mail</span>
+<div class="flex items-center gap-3 pl-4 border-l border-white/10">
+<div class="text-right">
+<p class="font-body-sm text-body-sm font-semibold text-on-surface">Alexandra</p>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-primary-container text-on-primary-container font-bold uppercase tracking-wider">PRO</span>
+</div>
+<img alt="Alexandra" class="w-10 h-10 rounded-full border-2 border-primary/20 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVzo2o3tHh5UcqZBAsTi-6A8BKnpU_2JpAW6x_NzDuacABtwofJUry_feu9To9CH7d9RWZfNd31mkCzlrCL5_VTR4giYErHpu1unbj3PhbnOPV-KQ8pXj3IV8KSdDlDe7sZunfgNK_SS9MdpqfmeyzdPZfaUXfobGAC728DrsoO773tQmL-fOSI0OMqjlddgYAKibCOUZ2E_hVmybsWLShkq0HRs4uSMCPqK6zCu1J9hjmmADojKjHu4Tu1paIva-JG8yDvgsF6svp"/>
+</div>
+</div>
+</header>
+<div class="max-w-container-max mx-auto p-margin-desktop space-y-12">
+<!-- Hero Section -->
+<section class="space-y-4">
+<div class="flex items-center gap-2 text-gold-mystic-400">
+<span class="material-symbols-outlined">Sparkle</span>
+<span class="font-label-mono text-label-mono uppercase">Canalización Astral</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-surface">Elige tu Tirada</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Cada carta es un portal. Selecciona el método que mejor resuene con tu consulta actual para recibir la guía del cosmos.
+                    </p>
+</section>
+<!-- Spreads Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Lectura Rápida -->
+<div class="card-glass p-8 rounded-3xl flex flex-col gap-6 group">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined text-[32px]">filter_1</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Lectura Rápida</h3>
+<p class="text-on-surface-variant font-body-md text-body-md leading-relaxed">
+                                Ideal para preguntas de sí/no o una visión rápida de tu energía actual. Una sola carta para una respuesta inmediata.
+                            </p>
+</div>
+<div class="mt-auto pt-6 border-t border-white/5 flex justify-between items-center">
+<span class="font-label-mono text-label-mono bg-white/5 px-3 py-1.5 rounded-full">1 CARTA</span>
+<button class="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+                                Seleccionar <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Pasado, Presente, Futuro -->
+<div class="card-glass p-8 rounded-3xl flex flex-col gap-6 group">
+<div class="w-16 h-16 rounded-2xl bg-cyan-ethereal/10 flex items-center justify-center text-cyan-ethereal group-hover:bg-cyan-ethereal group-hover:text-surface-container transition-all duration-300">
+<span class="material-symbols-outlined text-[32px]">hourglass_empty</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Pasado, Presente, Futuro</h3>
+<p class="text-on-surface-variant font-body-md text-body-md leading-relaxed">
+                                Un viaje a través de la línea del tiempo para entender tus raíces, tu realidad actual y el camino que se abre ante ti.
+                            </p>
+</div>
+<div class="mt-auto pt-6 border-t border-white/5 flex justify-between items-center">
+<span class="font-label-mono text-label-mono bg-white/5 px-3 py-1.5 rounded-full">3 CARTAS</span>
+<button class="flex items-center gap-2 text-cyan-ethereal font-semibold hover:gap-3 transition-all">
+                                Seleccionar <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Cruz Celta -->
+<div class="card-glass p-8 rounded-3xl flex flex-col gap-6 group">
+<div class="w-16 h-16 rounded-2xl bg-mystic-violet-400/10 flex items-center justify-center text-mystic-violet-400 group-hover:bg-mystic-violet-400 group-hover:text-surface-container transition-all duration-300">
+<span class="material-symbols-outlined text-[32px]">pentagon</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Cruz Celta</h3>
+<p class="text-on-surface-variant font-body-md text-body-md leading-relaxed">
+                                La lectura clásica más profunda. Ofrece un análisis exhaustivo de influencias, obstáculos, esperanzas y resultados finales.
+                            </p>
+</div>
+<div class="mt-auto pt-6 border-t border-white/5 flex justify-between items-center">
+<span class="font-label-mono text-label-mono bg-white/5 px-3 py-1.5 rounded-full">10 CARTAS</span>
+<button class="flex items-center gap-2 text-mystic-violet-400 font-semibold hover:gap-3 transition-all">
+                                Seleccionar <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Lectura de Amor -->
+<div class="card-glass p-8 rounded-3xl flex flex-col gap-6 group">
+<div class="w-16 h-16 rounded-2xl bg-rose-passion/10 flex items-center justify-center text-rose-passion group-hover:bg-rose-passion group-hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined text-[32px]">favorite</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Lectura de Amor</h3>
+<p class="text-on-surface-variant font-body-md text-body-md leading-relaxed">
+                                Explora las conexiones emocionales, compatibilidad y el futuro de tus relaciones sentimentales con guía espiritual.
+                            </p>
+</div>
+<div class="mt-auto pt-6 border-t border-white/5 flex justify-between items-center">
+<span class="font-label-mono text-label-mono bg-white/5 px-3 py-1.5 rounded-full">VINCULAR</span>
+<button class="flex items-center gap-2 text-rose-passion font-semibold hover:gap-3 transition-all">
+                                Seleccionar <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Lectura de Dinero -->
+<div class="card-glass p-8 rounded-3xl flex flex-col gap-6 group">
+<div class="w-16 h-16 rounded-2xl bg-gold-mystic-400/10 flex items-center justify-center text-gold-mystic-400 group-hover:bg-gold-mystic-400 group-hover:text-surface-container transition-all duration-300">
+<span class="material-symbols-outlined text-[32px]">payments</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-2">Lectura de Dinero</h3>
+<p class="text-on-surface-variant font-body-md text-body-md leading-relaxed">
+                                Claridad sobre finanzas, abundancia y carrera profesional. Identifica oportunidades y bloqueos económicos.
+                            </p>
+</div>
+<div class="mt-auto pt-6 border-t border-white/5 flex justify-between items-center">
+<span class="font-label-mono text-label-mono bg-white/5 px-3 py-1.5 rounded-full">PROSPERIDAD</span>
+<button class="flex items-center gap-2 text-gold-mystic-400 font-semibold hover:gap-3 transition-all">
+                                Seleccionar <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Lectura Personalizada (Empty State/New) -->
+<div class="card-glass p-8 rounded-3xl border-dashed flex flex-col items-center justify-center gap-4 text-center cursor-pointer group hover:bg-white/5">
+<div class="w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white/30 group-hover:text-white/60">add</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-white/60">Crea tu propia tirada</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Personaliza el número y el significado de cada posición.</p>
+</div>
+</div>
+</section>
+<!-- Featured Cards Preview -->
+<section class="mt-20">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline-md text-headline-md">Arquetipos del Destino</h3>
+<a class="text-primary font-medium flex items-center gap-1 hover:underline" href="#">
+                            Ver glosario completo
+                            <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+<div class="aspect-[2/3] rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A mystical tarot card titled 'The Star', featuring a detailed illustration of a celestial maiden pouring water under a sky of radiant, glowing indigo stars. The art style is modern dark-fantasy with vibrant violet and cyan neon highlights, matching a cosmic mysticism aesthetic with sharp editorial lines and ethereal glows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzfhcHnsXyCYbmvvsH5KtRWXxx66HZMrnC_J7l_RCqgJ6kA-6j1sK6yVHjJ1sFgtrT5spOyRV02OnM008_5zW4KUNtbiBNGTzskbJ6_XtVQJMooCkQTd1WEI07N-BlaGJ38910DpLTrdS_THBucyvaydzt5MfDKtcA4WJ4L1GKBgmtekJD11e4-G3mjnOtfUbYf_ecTOASzHPboVl1aw5m4KBKPyTho6x0C3ZzU98YEC4-6p06pNI_Y5x_BCq9KoWGiKdhzU0u7P1t"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex flex-col justify-end">
+<span class="font-label-mono text-[10px] text-cyan-ethereal">ARQUETIPO XVII</span>
+<span class="font-body-sm font-bold text-white">La Estrella</span>
+</div>
+</div>
+<div class="aspect-[2/3] rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A striking tarot card of 'The Moon', depicting two wolves howling at a giant, crystalline crescent moon over a dark, shimmering ocean. The visual style is premium glassmorphism, with deep translucent layers of navy and silver, and sharp metallic accents reflecting the mysterious atmosphere of the night." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWECKC_PWPpDZ8bV-pMDl_JhR0FicPCUq3pYHs8WBMCVf7QhO1JgPCjQmqOMt1DSJ46BjeM8wTNpbKDMl2sZQ196nVqQ8WjJCCVQ4T0AJThMfxsLX9UBuaEzA3SeR7iT-HC7X5xZTNHljn5SgVkAUNZidfVz7mTdGOp7hfK_ou00q2G1WOftivOJQo40qDyDv77HauuDV5bEPmj0li7uZTsZbIf-kWuqsoRA9wHrBv-0skTwKv2ygQRIEqfFDVE3MxOktfx_AiSfR0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex flex-col justify-end">
+<span class="font-label-mono text-[10px] text-mystic-violet-400">ARQUETIPO XVIII</span>
+<span class="font-body-sm font-bold text-white">La Luna</span>
+</div>
+</div>
+<div class="aspect-[2/3] rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A powerful tarot card representation of 'The Sun', showcasing a radiant human face inside a complex geometric sunburst of burnished gold and orange. The design is high-contrast and data-driven, blending ancient sun worship symbols with modern technological precision and a warm, vibrant light palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxABzm7qjFuzj3HRcDnq5nR66sKO8LfBbD3DNsyYa3qr61fbPAzRRMfq7hfywW3o59ExIuhjI0dICV6RtU8T2VsSfHWfuGGbHQmC3TUHRhYmqlJ8z50herQJr7GM5lC_ZHdtuZcHd99xqjH9NrcDw8CAcog3ExqWz95G5qZaE4fgJB7qePlFd4Q0jVEtWJANc2aCsqnAWI_f8-8849Swajmvi-xaTDOycEJlj12A1JarsYlhF8u2l9kJK2wqYZYvpNGX8Vlk4wSpHe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex flex-col justify-end">
+<span class="font-label-mono text-[10px] text-gold-mystic-400">ARQUETIPO XIX</span>
+<span class="font-body-sm font-bold text-white">El Sol</span>
+</div>
+</div>
+<div class="aspect-[2/3] rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="The 'Magician' tarot card, featuring a central figure surrounded by floating alchemical symbols of a cup, sword, wand, and coin. The background is a vast, swirling nebula of deep purple and emerald green, creating a sense of infinite cosmic possibility and sophisticated mastery through a high-fidelity digital art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLWh3k35ZK5UUSNRYpuGPJPg-XVL-itiir9rGgIB0GJLNngF4e2zqsF3GIj9CChrkh73VyOmdKOFpPaCI_eJcQnXy4h7pgfCZwdc5_EPojAFswbjOHbqMZsTCeFwJQu3wqFuuad_QoNiLBmc7XnqexGMPziPaha_cYHg_4cfjUFcNR_VhRKjktWJGw7L5OA6DJwmxYrbqDukeY0gu6IaGulEZy1CKGJu8ZEl5uGMiWAHL-xa5m8LhjEjWqH9M11EyGPgDwbttc1_E6"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex flex-col justify-end">
+<span class="font-label-mono text-[10px] text-emerald-abundance">ARQUETIPO I</span>
+<span class="font-body-sm font-bold text-white">El Mago</span>
+</div>
+</div>
+<div class="aspect-[2/3] rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A regal 'Empress' tarot card illustration, depicting a powerful woman seated on a throne of living vines and flowers within a luminous forest. The lighting is soft and golden, evocative of natural abundance and divine feminine power, rendered with exquisite detail and a balanced, editorial elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkssrvdyg7tx_xJdwQFbQmU2saIurjgn2gaMAfKO6tDKwP1kVfO650nUo5un_yY2boyCS8N52i9asFyjyjvuBFFX5nSNuPIthNw8DPw0soAkSeKZPPq2s6fuBpEuNWMYWUKvhh_qT20kO6QtAQWYXmZCJgLEAN-6GkBa2cIvCdxMMHElbCwGKFolUC2hcjvlHKbP-hHpsoggGwCNSVYoxwTDaF47T6B8gEU7PVXMdKyyK3VI7FawqkLh_45Ii-s20Lq2ZnrBMAH4-W"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex flex-col justify-end">
+<span class="font-label-mono text-[10px] text-rose-passion">ARQUETIPO III</span>
+<span class="font-body-sm font-bold text-white">La Emperatriz</span>
+</div>
+</div>
+<div class="aspect-[2/3] rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="The 'World' tarot card, showing a central figure dancing within a wreath of glowing blue energy. The surrounding space is filled with abstract cosmic geometry and distant galaxies, symbolizing completion and unity. The aesthetic is atmospheric yet functional, with a deep indigo and silver palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN0Jjfuyjlz7IYm3PAy7DJdIXSWK-NOyruAm24YKeNFh0dYZVLEhmSa1zyN-zfyAeBUiAQGu3I3ctiHGMpDswg5o2C5h1ElCzJKVGnI37biwlw35Ouzn-ZjM4H_cs6QsI0oaiTIUZadLcsFNZxjvFGka2KDTx9h4g_0P6-fuu1NOKO0RHMT2xuTqv9KDjS2alWTOMePOz-0lGfLW_tJiVVZad-0EsiEaRhI9XWCrBEcntyMeVzfk1KNvmVsXeCWgiKBjcP_ZcxEv0k"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex flex-col justify-end">
+<span class="font-label-mono text-[10px] text-primary">ARQUETIPO XXI</span>
+<span class="font-body-sm font-bold text-white">El Mundo</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

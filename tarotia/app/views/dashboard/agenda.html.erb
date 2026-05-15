@@ -1,0 +1,78 @@
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+  <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-mystic-violet-950/30 rounded-full blur-[120px]"></div>
+  <div class="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-gold-mystic-400/10 rounded-full blur-[120px]"></div>
+  <div class="absolute -bottom-[10%] left-[20%] w-[30%] h-[30%] bg-primary-container/10 rounded-full blur-[120px]"></div>
+</div>
+
+<div class="max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-8">
+  <div class="mb-8">
+    <a href="<%= root_path %>" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-6 group">
+      <span class="material-symbols-outlined text-lg">arrow_back</span>
+      <span class="text-xs uppercase tracking-widest font-bold">Volver al inicio</span>
+    </a>
+    <h2 class="text-4xl md:text-5xl font-bold text-on-surface mb-2">Agenda Espiritual</h2>
+    <p class="text-on-surface-variant">Planifica tus lecturas y sigue tu evolución espiritual.</p>
+  </div>
+
+  <!-- Today's Energy -->
+  <div class="glass-card p-6 md:p-8 rounded-2xl mb-8 text-center">
+    <div class="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+      <span class="material-symbols-outlined text-4xl text-primary">wb_sunny</span>
+    </div>
+    <p class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">La energía de hoy favorece</p>
+    <h3 class="text-3xl font-bold text-on-surface mb-4">La Intuición</h3>
+    <p class="text-on-surface-variant max-w-md mx-auto leading-relaxed">Confía en tu voz interior, es el momento de tomar decisiones importantes.</p>
+  </div>
+
+  <!-- Month Navigation -->
+  <div class="flex items-center justify-between mb-6">
+    <button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+      <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <h3 class="text-xl font-bold text-on-surface">Mayo 2024</h3>
+    <button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+      <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+  </div>
+
+  <!-- Calendar Grid -->
+  <div class="grid grid-cols-7 gap-2 mb-8">
+    <% ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'].each do |day| %>
+      <div class="text-center text-xs text-on-surface-variant font-bold py-2"><%= day %></div>
+    <% end %>
+    <% (1..31).each do |d| %>
+      <% 
+        events = { 5 => '🃏 Lectura', 12 => '🌟 Reflexión', 18 => '🃏 Lectura', 25 => '🌙 Luna Llena' }
+        event = events[d]
+      %>
+      <div class="<%= event ? 'bg-primary/10 border border-primary/20' : 'hover:bg-white/5' %> rounded-xl p-2 text-center <%= d == 18 ? 'ring-2 ring-primary' : '' %> cursor-pointer transition-all">
+        <span class="text-sm font-bold <%= d == 18 ? 'text-primary' : 'text-on-surface' %>"><%= d %></span>
+        <% if event %>
+          <p class="text-[8px] text-on-surface-variant mt-1 leading-tight"><%= event %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Upcoming Events -->
+  <div class="space-y-4">
+    <h3 class="text-lg font-bold text-on-surface">Próximos Eventos</h3>
+    <% [
+      { date: '18 May', title: 'Lectura programada: ¿Qué viene para mí en el amor?', type: 'Lectura', color: 'bg-primary/10 text-primary' },
+      { date: '25 May', title: 'Luna Llena en Sagitario — Meditación guiada', type: 'Astrología', color: 'bg-cyan-ethereal/10 text-cyan-ethereal' },
+      { date: '1 Jun', title: 'Nueva Lectura Mensual: Visión general', type: 'Lectura', color: 'bg-primary/10 text-primary' }
+    ].each do |event| %>
+      <div class="glass-card p-4 rounded-xl flex items-center gap-4 hover:bg-white/5 transition-all cursor-pointer">
+        <div class="text-center shrink-0">
+          <p class="text-xs text-on-surface-variant"><%= event[:date].split(' ')[0] %></p>
+          <p class="text-sm font-bold text-on-surface"><%= event[:date].split(' ')[1] %></p>
+        </div>
+        <div class="flex-1">
+          <p class="font-bold text-on-surface"><%= event[:title] %></p>
+          <span class="text-xs <%= event[:color] %> px-2 py-0.5 rounded-full mt-1 inline-block"><%= event[:type] %></span>
+        </div>
+        <span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+      </div>
+    <% end %>
+  </div>
+</div>

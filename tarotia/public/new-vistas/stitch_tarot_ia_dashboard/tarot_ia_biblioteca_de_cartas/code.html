@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TAROT IA - Biblioteca del Destino</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#2d2a5b",
+                        "on-secondary-container": "#b3afe9",
+                        "tertiary-container": "#a15100",
+                        "tertiary": "#ffb784",
+                        "surface-container": "#221d2e",
+                        "surface-container-high": "#2d2739",
+                        "on-background": "#e9def6",
+                        "tertiary-fixed": "#ffdcc6",
+                        "emerald-abundance": "#10B981",
+                        "on-primary": "#3f008e",
+                        "mystic-violet-950": "#2E1065",
+                        "surface-container-lowest": "#100b1b",
+                        "surface-container-low": "#1e1929",
+                        "surface-tint": "#d2bbff",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "surface-variant": "#383244",
+                        "on-secondary-fixed-variant": "#444173",
+                        "cyan-ethereal": "#06B6D4",
+                        "primary-fixed-dim": "#d2bbff",
+                        "on-surface-variant": "#ccc3d8",
+                        "outline-variant": "#4a4455",
+                        "outline": "#958da1",
+                        "indigo-night-700": "#4338CA",
+                        "rose-passion": "#F43F5E",
+                        "error": "#ffb4ab",
+                        "gold-mystic-400": "#FBBF24",
+                        "on-secondary-fixed": "#181445",
+                        "secondary-fixed-dim": "#c4c1fb",
+                        "on-primary-fixed": "#25005a",
+                        "on-surface": "#e9def6",
+                        "on-primary-fixed-variant": "#5a00c6",
+                        "tertiary-fixed-dim": "#ffb784",
+                        "secondary": "#c4c1fb",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#732ee4",
+                        "on-error": "#690005",
+                        "surface-dim": "#161121",
+                        "inverse-on-surface": "#332e3f",
+                        "secondary-container": "#444173",
+                        "indigo-night-800": "#312E81",
+                        "gold-mystic": "#F59E0B",
+                        "surface": "#161121",
+                        "on-tertiary-fixed": "#301400",
+                        "primary-container": "#7c3aed",
+                        "on-tertiary-container": "#ffe0cd",
+                        "inverse-surface": "#e9def6",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#eaddff",
+                        "mystic-violet-400": "#A78BFA",
+                        "background": "#161121",
+                        "on-primary-container": "#ede0ff",
+                        "surface-container-highest": "#383244",
+                        "surface-bright": "#3c3648",
+                        "primary": "#d2bbff",
+                        "mystic-violet-50": "#F5F3FF",
+                        "secondary-fixed": "#e3dfff",
+                        "on-tertiary": "#4f2500"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "label-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(30, 25, 41, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .card-glass {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .card-glass:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(167, 139, 250, 0.2); border-radius: 10px; }
+        .bg-cosmic {
+            background: radial-gradient(circle at top right, #2E1065 0%, #161121 100%);
+        }
+    </style>
+</head>
+<body class="bg-cosmic text-on-surface font-body-md min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 h-full w-64 bg-surface-container-low/70 backdrop-blur-xl border-r border-white/5 shadow-xl flex flex-col p-gutter gap-4 hidden md:flex z-50">
+<div class="mb-4">
+<h1 class="font-headline-sm text-headline-sm text-mystic-violet-400">TAROT IA</h1>
+<p class="text-[12px] opacity-60">Tu destino, revelado</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 duration-300">auto_awesome</span>
+<span class="font-body-sm text-body-sm">Oracle</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 duration-300">style</span>
+<span class="font-body-sm text-body-sm">Readings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 duration-300">history</span>
+<span class="font-body-sm text-body-sm">History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-semibold group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300" style="font-variation-settings: 'FILL' 1;">collections</span>
+<span class="font-body-sm text-body-sm">Gallery</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 duration-300">psychology_alt</span>
+<span class="font-body-sm text-body-sm">AI Chat</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-white/5 flex flex-col gap-1">
+<div class="p-4 bg-gradient-to-br from-indigo-night-800 to-mystic-violet-950 rounded-xl mb-4 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="font-bold text-white mb-1">Hazte PRO ✨</p>
+<p class="text-xs text-on-surface-variant mb-3">Lecturas ilimitadas y más.</p>
+<button class="w-full bg-gold-mystic py-2 rounded-lg text-on-secondary font-bold text-xs hover:scale-105 transition-transform">Upgrade Now</button>
+</div>
+<div class="absolute -right-4 -bottom-4 w-16 h-16 bg-gold-mystic/20 blur-2xl rounded-full"></div>
+</div>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 duration-300">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg group text-error" href="#">
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 duration-300">logout</span>
+<span class="font-body-sm text-body-sm">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 bg-surface-container/70 backdrop-blur-xl border-b border-white/5 px-margin-desktop py-4 flex justify-between items-center w-full shadow-sm">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold tracking-tight text-primary md:hidden">TAROT IA</span>
+<div class="hidden lg:flex items-center gap-2 bg-surface-variant/30 px-4 py-2 rounded-full border border-white/5 w-96">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full text-on-surface" placeholder="Buscar cartas, significados, arcanos..." type="text"/>
+<span class="text-[10px] text-outline font-label-mono bg-surface-container-high px-1.5 py-0.5 rounded">⌘K</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">mail</span>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-white/10">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold">Alexandra</p>
+<p class="text-[10px] text-gold-mystic-400 font-bold uppercase tracking-widest">PRO MEMBER</p>
+</div>
+<img alt="Alexandra" class="w-10 h-10 rounded-full border-2 border-primary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8luu0oFPL_7LaW_TKjgqn-rnTzIUxT22U9WoK4EykdUGCjeE1cUm7O1Ubcm5t3XkRFZTg4RWQQJY7gbPB-4MaOnd-AjnKaeYLbVf4siwRqE4RJXLBxwIXFiDZYp7uv09iBDuQWyAZbMtPgbwyTXUBu5yxn1y6vNfqSYRgZ3XL5iLBxkFumcbBH4gzhbt24jGaovxifdPLtIXRTvkATMvdPrcg07IIPhOHjSOFJsO9YYH9fScVekFX2Td4CKghFFkzBJeMbJiGqFWA"/>
+</div>
+</div>
+</header>
+<!-- Canvas Body -->
+<div class="p-margin-desktop max-w-container-max mx-auto">
+<!-- Header Section -->
+<div class="mb-12">
+<h2 class="font-display-lg text-display-lg mb-2">Biblioteca del Destino</h2>
+<p class="text-on-surface-variant text-body-lg max-w-2xl">Explora los 78 portales de sabiduría. Cada carta es un espejo de la psique humana, una guía para navegar los hilos del tiempo y la consciencia.</p>
+</div>
+<!-- Filters & Bento Controls -->
+<div class="flex flex-col md:flex-row gap-gutter items-center justify-between mb-8">
+<div class="flex flex-wrap gap-2">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-semibold text-sm">Todos</button>
+<button class="px-6 py-2 rounded-full bg-surface-variant/40 hover:bg-surface-variant/60 border border-white/5 text-sm transition-all">Arcanos Mayores</button>
+<button class="px-6 py-2 rounded-full bg-surface-variant/40 hover:bg-surface-variant/60 border border-white/5 text-sm transition-all">Arcanos Menores</button>
+<div class="h-8 w-px bg-white/10 mx-2 self-center"></div>
+<button class="px-6 py-2 rounded-full bg-surface-variant/40 hover:bg-surface-variant/60 border border-white/5 text-sm transition-all">Bastos</button>
+<button class="px-6 py-2 rounded-full bg-surface-variant/40 hover:bg-surface-variant/60 border border-white/5 text-sm transition-all">Copas</button>
+<button class="px-6 py-2 rounded-full bg-surface-variant/40 hover:bg-surface-variant/60 border border-white/5 text-sm transition-all">Espadas</button>
+<button class="px-6 py-2 rounded-full bg-surface-variant/40 hover:bg-surface-variant/60 border border-white/5 text-sm transition-all">Oros</button>
+</div>
+<div class="flex gap-4">
+<div class="flex p-1 bg-surface-container rounded-lg border border-white/5">
+<button class="p-2 bg-primary-container text-on-primary-container rounded-md"><span class="material-symbols-outlined text-[20px]">grid_view</span></button>
+<button class="p-2 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">view_list</span></button>
+</div>
+</div>
+</div>
+<!-- Cards Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+<!-- Major Arcana Example 1 -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A highly detailed tarot card illustration of 'The Magician' featuring a mystical figure surrounded by celestial symbols, golden tools of the four suits on a table, and ethereal floating sparks. The style is modern cosmic mysticism with deep purples and vibrant gold accents, presented in a sharp editorial digital art style with soft glowing lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm-MuSxINsxtmrAIhxetl64OZscDpqLEs4kFpVNv2CflTUBKUXzJ6NI7at2QQ8lq78IBGbNHmcTRAFUGb3iynMVS5nZVAHKicGb3IzQIZGKmEqr38rpbzmv384wsUbJSjtVE2VnSffMDWxKDgOtwtxX4z8XUxmza5zW70vI9SelgRhGNG_d5Iip47QmA7B2pV1mLdHGGEND54pXf8Pv3uAzBPvmFKoxZdxPNCWSIl4T8fSOlNMLl0fjxf9FXQg3J6hEE5Tc6GNJv_f"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-cyan-ethereal bg-cyan-ethereal/10 px-2 py-0.5 rounded-full mb-2 inline-block">I • ARCANO MAYOR</span>
+<h3 class="font-headline-sm text-[18px] text-white">El Mago</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Poder, acción consciente y manifestación de la voluntad propia.</p>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An ethereal digital illustration of 'The High Priestess' tarot card. A serene woman sits between two pillars, light and dark, holding a sacred scroll. Behind her is a veil with pomegranate motifs. The lighting is lunar and mysterious, using a palette of deep indigo, silver, and soft teal to evoke a dreamlike spiritual atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChb6-VKAcvuPLvIYS5APZNoui10-BHOnJr5-UNze6EcYBc-1yJOYFfdTGjRcB03wKE94H2ddBs5dHwB949FYTNe-s6n2oNon_9HC3YyZPTwnWb8aR0DVa6OX_yECV8H8wvC5c4JFoyyYEvpq6EJZVH9Fc3WC8fpuFY0GufcIhRF-OA0VGoiKe_TCUWvR6rf1wsKxbVPRcE89i4kdoCya1oRbOegnR9UukpNRqPqzM-uZq787Dd5IdtR_ZZRi4yDckd06IeSjcaeiSp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-cyan-ethereal bg-cyan-ethereal/10 px-2 py-0.5 rounded-full mb-2 inline-block">II • ARCANO MAYOR</span>
+<h3 class="font-headline-sm text-[18px] text-white">La Sacerdotisa</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Intuición, misterios sagrados y el conocimiento del inconsciente.</p>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass border-primary/20">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Digital art depiction of 'The Empress' tarot card, showing a regal goddess sitting in a lush, blooming garden under a golden sunset. She wears a crown of twelve stars. The aesthetic is warm and abundant with vibrant emerald greens, rich amethysts, and gold metallic highlights, emphasizing fertility and nature's grace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHZY2FaOq7vKOS_EmSYHnlajIdvqpkauya1c8Bxp4FyP6gLfxEzenq1Dt9lC7h46kt1ry_ITIIOYnHHmqn8BXSEgsWCqPek-0J3twDocobZw1ZxmFfHsuC7LK-XoSpg7Mom-hKVwmmvy62JmJNl1LEtzG2BeXxsXXNKV2nJU9eOesAVxgUCt_37ImNXmEg__L7uKbqDI0vaQylPLvx0domd1Brag3GLI29g9bRwB_p7xrf3C2YIR-T4_WgwiryWe-OYpaNrhq_yuyq"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-cyan-ethereal bg-cyan-ethereal/10 px-2 py-0.5 rounded-full mb-2 inline-block">III • ARCANO MAYOR</span>
+<h3 class="font-headline-sm text-[18px] text-white">La Emperatriz</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Fertilidad, naturaleza, abundancia y el principio creativo femenino.</p>
+</div>
+</div>
+</div>
+<!-- Minor Arcana - Bastos -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-night-800/20 to-transparent z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A stylized tarot illustration of the 'Ace of Wands'. A radiant hand emerges from a cloud holding a flowering wooden staff against a landscape of rolling hills and a distant castle. The scene is illuminated by fiery orange and sunset purple lighting, representing raw creative energy and new beginnings." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSEGgcO8Szf_H9sNNOSDZB2NLoWtFOCxcd8xVCrophMxjqkqpMYWPhNQ_cvyVlWMqsWZlyL-CW_jsYhgLNEV4Tjyv93iomNKMFf_abhHziK1Bd6VzijrN2LIif_QgWRoXOd0OSF3ohQiNhZaw-j5jU-KcyvEqSoJPoCTp5JpEea7nIxXExFvaG7cFAg8z3BRUymSrhaGAo5IGiNX2iXp75eAywv78bA6gEA01ITsT47BtDLdCg9-lNvyTVQKQbFu3DyMjF27dpX20j"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-tertiary bg-tertiary/10 px-2 py-0.5 rounded-full mb-2 inline-block">AS DE BASTOS</span>
+<h3 class="font-headline-sm text-[18px] text-white">Inspiración</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Nuevas aventuras, energía vital y el chispazo de la creatividad.</p>
+</div>
+</div>
+</div>
+<!-- Minor Arcana - Copas -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A poetic tarot illustration for 'Two of Cups'. Two soulmates exchange golden chalices under a blooming archway, with a caduceus floating above. The lighting is soft and romantic with an ethereal glow. The palette features sea-foams, soft lavenders, and pearlescent whites, capturing harmony and emotional connection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1tlf_f5PD7rbJ27F_iGGR4tkwxScgojOA9AbfPoIpxFDYS_qLiKShmp-iGYxICK_9CYC8ud-LcUKsFuCPoFtXn31kdM5Pz5Nj9ZxrES96_JOszzyVpahrpwaGoEZUEe9FsWRi5u1IwR-trRS7Bi9ggMfL4aRIBmZ3Q2ICs0nZF4Ql4LTdw919QeNJnrGZLWXpdYI8ekmrKZNm4n-SqRhZJBtaWrXXXPDWqXwt2Wf5nKCNsR-a6v-t2J6Bbe9M6hAEdX7lTjmQ48wJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-cyan-ethereal bg-cyan-ethereal/10 px-2 py-0.5 rounded-full mb-2 inline-block">DOS DE COPAS</span>
+<h3 class="font-headline-sm text-[18px] text-white">Unión</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Conexión profunda, asociaciones equilibradas y amor compartido.</p>
+</div>
+</div>
+</div>
+<!-- Arcano Mayor - El Sol -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass border-gold-mystic/30">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Modern digital tarot illustration of 'The Sun' card. A giant, smiling sun radiates golden beams over two children playing in a field of sunflowers. The lighting is high-key and brilliant, using a palette of golden mystic yellows, oranges, and sky blues to convey pure joy, clarity, and success." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAha6WEdJoGM1GlOTBaRfy7UF3c4uVXoA7iBAHIkyvZZijs7Xb2bZ84urb2RQUIztlet67J2xDYVhj9vSDwATYQgAKNZ-nddYyBegL6VOVvgrYNEnJvjw_tmHcCMuXJbOfV_VEsT9993rUOsGV2jGlkX2tMm6KL7HkfTsvP3_7xlgSLFJ1kFcisYqcu607VJH2wukQFFXRpASiwf8S0Wd6uo-2_WyfN6PUzuj_Q94qbNIpjSeiPsSK3j2AbLVov_7X_gqsRgto3UYBQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-gold-mystic bg-gold-mystic/10 px-2 py-0.5 rounded-full mb-2 inline-block">XIX • ARCANO MAYOR</span>
+<h3 class="font-headline-sm text-[18px] text-white">El Sol</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Claridad total, éxito, alegría radiante y vitalidad renovada.</p>
+</div>
+</div>
+</div>
+<!-- Additional cards repeated for grid effect -->
+<!-- Card 7 -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A dark and atmospheric tarot card illustration for 'The Moon'. Two wolves howl at a large full moon that drips celestial fluid into a pool with a lobster. The colors are deep indigo, bone white, and midnight blue with a shimmering silver effect. The mood is one of illusion and instinctual fear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_1pbohGB81BQfROOlXS-r9gm9XNCuVL8FGZWp831ebJz901wy9A3V5ZQbnj9gN-KfQLQwjah8bZSGU7ZoFZxtDGFpwyxXaOYEidGrT5iYe4OuyfmlOy-Pu1-oJkKtX71_G-SJRkuRa5F5ivSHpTPsF_ePxn3KHWMQRpw1nK8WZbS1JTsIinbkAWIQB485gviN_kIqGqyOgU3aMINHb-_F0OobTKbttL1NBMOMwqcEFgVmaJdIDy7CtD2cpbcPF_SRrFx1Fr-EAys5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-cyan-ethereal bg-cyan-ethereal/10 px-2 py-0.5 rounded-full mb-2 inline-block">XVIII • ARCANO MAYOR</span>
+<h3 class="font-headline-sm text-[18px] text-white">La Luna</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Ilusión, intuición, sueños y el enfrentamiento con lo oculto.</p>
+</div>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Highly detailed tarot illustration for 'The Star'. A nude woman kneels by a pool, pouring water from two jugs under a massive eight-pointed star and seven smaller ones. The lighting is bioluminescent and serene, featuring a palette of electric cyan, soft violet, and dark space blacks, symbolizing hope." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB71GOCMDOcYWVjgpGjL9VImupPTYsfym2u7BnuIpKHGNqDnriGoo9nZATAYrCTvRKNc14XfWu0qGJHqcLP5NQ3xVD8EmSnfIZkTpgPjJmE97aLBJImfM0fDKIB845kXvtkS2UZKJBegCCYlF5xMVi9DRZU7i0PRed3RBHfqkSqwGyBBUp8avVWB6YISwQ9zy-YUQvOVB8QtyEn8bAK1156MnG6QFLOmnpbG0YTuzyil2BrFeb8KLmWMe7R7xbXN5YwfOyLgl8Rqojm"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-cyan-ethereal bg-cyan-ethereal/10 px-2 py-0.5 rounded-full mb-2 inline-block">XVII • ARCANO MAYOR</span>
+<h3 class="font-headline-sm text-[18px] text-white">La Estrella</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Esperanza, renovación espiritual y fe en el futuro.</p>
+</div>
+</div>
+</div>
+<!-- Minor Arcana - Espadas -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Sleek tarot illustration for 'Three of Swords'. A floating red heart pierced by three silver swords against a stormy, grey-violet sky with lightning. The style is sharp and graphic, using high-contrast metallic accents and dark shadows to represent emotional pain and mental conflict." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm9rTQ71xwiCapWJGfDWzc4lb264l-HpWzbEXuLpeDENsYV8ecaz1FPeiL9IECfsV9q4hpeqDW-0I7S10XUagKBqHeah-UfisVbjBWmXBStwzIlAZTtuBv9uuIszUyxUDxCV6KMUan2FyoBeX82eogzSpGrgBEXy3IeFMQcW1mNGdh4BlIUgUNV3T0X61rx78V5wk7kmND7-im8Dvl0TbVL8QWYpWXCpbBZ_j72l0WUwNDDAhI4duy4xAMOs-Dj4jPMIAYEZFr6XeL"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-rose-passion bg-rose-passion/10 px-2 py-0.5 rounded-full mb-2 inline-block">TRES DE ESPADAS</span>
+<h3 class="font-headline-sm text-[18px] text-white">Duelo</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Dolor emocional, liberación de penas y claridad tras la tormenta.</p>
+</div>
+</div>
+</div>
+<!-- Minor Arcana - Oros -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Lavish tarot illustration for 'Ten of Pentacles'. An elderly patriarch sits at a gate with his family and two dogs, surrounded by ten golden pentacles in a tree formation. The lighting is golden hour warmth, with rich textures of stone, velvet, and gold coin brilliance, representing lasting wealth and legacy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRnK3ChwaaX1dvhbnFy_uBnaVVo6YsJLwTl_9SIv4DEy0W8lryJ8LI4rtTRcVMyvuE1A8dOtlz4LbnaSEET_87-Lw28cYDEDUPgDrmEhosuOvZcg82_eC6Vxu_TVcsjtNLm9BD7Ls_P16f1qgz5WHClpcjYlAPER1ks9Nd2gDHKQN8pUejf2KTL439lUgI-Zjn3nuuVp_zJUAB7XSvaCDu5Zu4PQnBzQTekuVkA8ImfJIAXC5nf1o3-mhHN1VigbEMsXWQCltCEdHT"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-gold-mystic bg-gold-mystic/10 px-2 py-0.5 rounded-full mb-2 inline-block">DIEZ DE OROS</span>
+<h3 class="font-headline-sm text-[18px] text-white">Legado</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Riqueza material, estabilidad familiar y la culminación de logros.</p>
+</div>
+</div>
+</div>
+<!-- Card 11 -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Dramatic tarot illustration for 'The Tower'. A tall tower struck by lightning, with sparks flying and crowns falling as two figures plunge. The scene is chaotic with fiery reds, charcoal blacks, and blinding white electric bolts. The mood is one of sudden cataclysmic change and revelation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQc7pzVUcWZHKsVblw8wyq1uM6hoBsC_Ct7-Nb2yzJ9WvRJn9GFP_NyfRfKeWCaeixn0r9yGqtIenMT204iYIc8HWJxGDpdp-TZ5iW-RrKL03cgFO0gLryXmnQ_HomhTWhCtA58lMPbbr-iOXOeRBavB9912MQcZwHPTovB2-LQfltjl-6vk9kbuqtz8EvoffDsQxoKl8us6lvK_ySrEwd6XmphZo7uLnDeEmHzJG1ZcvntBrfDeIhV-9WNT2NfY-a0d1U6OeR9m9w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-rose-passion bg-rose-passion/10 px-2 py-0.5 rounded-full mb-2 inline-block">XVI • ARCANO MAYOR</span>
+<h3 class="font-headline-sm text-[18px] text-white">La Torre</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Cambio repentino, revelación y la caída de estructuras obsoletas.</p>
+</div>
+</div>
+</div>
+<!-- Card 12 -->
+<div class="group relative aspect-[2/3.5] rounded-xl overflow-hidden card-glass">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Celestial tarot card for 'The World'. A dancing figure surrounded by a laurel wreath, with four creatures in the corners representing the elements. The lighting is transcendent and cosmic, using a palette of infinite purples, cyan nebulas, and bright white starlight to symbolize wholeness and completion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjOwrURBlltrsceBMD3vdml7v4RFAcHWx8uSwDyigThll9mbPEC7_IdeLiOWYtDK2DWB1JuYjstqjwA6a2AQETGxOsRO6I46DRg8oIXaysH69oxpSI8xlMRi-a6ZlGTLObQPEelPL1w0V_Fa_zP38DxX5n7RV2am3HRF-3yU3EA2ygRPGtOjZckcOg9R-TJTW2YGl5JcrnLnLrd9N9nb5Lp8ynQmsxabYFL2bexAq9SkNzFPKsX9vj5ikeoK53A2SW0aGbg33UJgwG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 p-4 w-full">
+<span class="text-[10px] font-label-mono text-cyan-ethereal bg-cyan-ethereal/10 px-2 py-0.5 rounded-full mb-2 inline-block">XXI • ARCANO MAYOR</span>
+<h3 class="font-headline-sm text-[18px] text-white">El Mundo</h3>
+<div class="mt-2 h-0 overflow-hidden group-hover:h-auto transition-all duration-300 opacity-0 group-hover:opacity-100">
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Culminación exitosa, integración y el cierre de un gran ciclo.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination/Footer -->
+<div class="mt-16 flex flex-col md:flex-row items-center justify-between gap-6 pb-margin-desktop">
+<p class="text-on-surface-variant text-sm">Mostrando 12 de 78 cartas del destino</p>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary-container text-on-primary-container font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:bg-surface-variant transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:bg-surface-variant transition-colors">3</button>
+<span class="mx-2 opacity-40">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:bg-surface-variant transition-colors">7</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button for AI Chat - Mobile Only / Perspective -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform md:hidden z-50">
+<span class="material-symbols-outlined">psychology_alt</span>
+</button>
+</body></html>

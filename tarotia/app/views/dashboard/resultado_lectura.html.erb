@@ -1,0 +1,73 @@
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+  <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-mystic-violet-950/30 rounded-full blur-[120px]"></div>
+  <div class="absolute bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-primary-container/10 rounded-full blur-[120px]"></div>
+</div>
+
+<div class="max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-8">
+  <div class="mb-8">
+    <a href="<%= historial_path %>" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-6 group">
+      <span class="material-symbols-outlined text-lg">arrow_back</span>
+      <span class="text-xs uppercase tracking-widest font-bold">Volver al historial</span>
+    </a>
+  </div>
+
+  <!-- Reading Header -->
+  <div class="glass-card p-6 md:p-8 rounded-2xl mb-8">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="bg-primary/20 text-primary text-xs font-bold px-3 py-1 rounded-lg">Pasado, Presente, Futuro</span>
+      <span class="text-xs text-on-surface-variant">18 Mayo 2024</span>
+    </div>
+    <h2 class="text-3xl md:text-4xl font-bold text-on-surface mb-4">¿Qué viene para mí en el amor?</h2>
+    <p class="text-on-surface-variant">Consulta realizada el 18 de Mayo de 2024 a las 10:30 AM</p>
+  </div>
+
+  <!-- Cards Display -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <% [
+      { position: 'Pasado', name: 'La Emperatriz', img: '/emperatriz-tarot.png', meaning: 'Abundancia, crecimiento, fertilidad' },
+      { position: 'Presente', name: 'Los Enamorados', img: '/los-enamordos.png', meaning: 'Decisiones del corazón' },
+      { position: 'Futuro', name: 'El Mundo', img: '/el-mundo.png', meaning: 'Cierre de ciclo, éxito' }
+    ].each do |card| %>
+      <a href="<%= tarot_card_path(card[:name].downcase.gsub(' ', '-').gsub('í', 'i')) %>" class="glass-card rounded-2xl overflow-hidden group hover:scale-[1.02] transition-all duration-300">
+        <div class="relative aspect-[2/3]">
+          <img src="<%= card[:img] %>" alt="<%= card[:name] %>" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <span class="text-xs text-primary font-bold uppercase tracking-wider"><%= card[:position] %></span>
+            <h3 class="text-lg font-bold text-white"><%= card[:name] %></h3>
+            <p class="text-xs text-on-surface-variant"><%= card[:meaning] %></p>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+
+  <!-- AI Interpretation -->
+  <div class="glass-card p-6 md:p-8 rounded-2xl mb-8">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+      <h3 class="text-xl font-bold text-on-surface">Interpretación de la IA</h3>
+    </div>
+    <div class="space-y-6">
+      <p class="text-on-surface-variant leading-relaxed">
+        Las cartas revelan un viaje de crecimiento emocional profundo. <strong class="text-on-surface">La Emperatriz</strong> en tu pasado indica que has cultivado una base de amor propio y abundancia emocional. Esta energía te ha preparado para la encrucijada que representan <strong class="text-on-surface">Los Enamorados</strong> en tu presente.
+      </p>
+      <p class="text-on-surface-variant leading-relaxed">
+        Actualmente te encuentres ante una decisión importante del corazón. El universo te pide que elijas desde la autenticidad, no desde el miedo. La presencia de <strong class="text-on-surface">El Mundo</strong> en tu futuro es sumamente positiva: indica que la decisión correcta te llevará a un cierre de ciclo exitoso y a una nueva etapa de plenitud.
+      </p>
+      <div class="bg-primary/5 rounded-xl p-5 border-l-4 border-primary">
+        <p class="text-sm text-on-surface-variant italic">"Confía en el proceso. Lo que hoy parece incierto, mañana tendrá sentido."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="flex flex-col sm:flex-row gap-4 justify-end">
+    <button class="px-6 py-3 rounded-lg border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors font-bold text-sm flex items-center gap-2">
+      <span class="material-symbols-outlined text-lg">share</span> Compartir
+    </button>
+    <button class="px-8 py-3 rounded-lg bg-primary-container text-on-primary-container hover:scale-105 transition-transform font-bold text-sm flex items-center gap-2 shadow-lg shadow-primary-container/30">
+      <span class="material-symbols-outlined text-lg">auto_fix</span> Nueva Lectura
+    </button>
+  </div>
+</div>

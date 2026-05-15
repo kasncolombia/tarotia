@@ -64,7 +64,13 @@
             <p class="text-sm text-on-surface-variant">Únete a nosotros para descifrar los mensajes del universo.</p>
           </div>
 
-          <%= form_tag '#', class: 'space-y-6' do %>
+          <% if flash[:alert] %>
+            <div class="bg-rose-passion/10 border border-rose-passion/30 rounded-lg p-3 mb-4 text-sm text-rose-passion text-center">
+              <%= flash[:alert] %>
+            </div>
+          <% end %>
+
+          <%= form_tag registro_path, class: 'space-y-6', data: { turbo: false } do %>
             <div class="space-y-2">
               <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider" for="name">Nombre Completo</label>
               <div class="relative">
@@ -90,7 +96,7 @@
               </div>
               <p class="text-xs text-outline mt-2">Debe tener al menos 8 caracteres.</p>
             </div>
-            <button class="w-full bg-primary-container hover:bg-primary-container/90 text-on-primary-container text-sm font-semibold py-4 rounded-lg transition-colors flex justify-center items-center gap-2 mt-8" type="submit">
+            <button class="w-full bg-primary-container hover:bg-primary-container/90 text-on-primary-container text-sm font-semibold py-4 rounded-lg transition-colors flex justify-center items-center gap-2 mt-8 cursor-pointer" type="submit">
               <span>Comenzar mi viaje</span>
               <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </button>

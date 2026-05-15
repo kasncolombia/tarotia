@@ -18,29 +18,28 @@
       <span class="material-symbols-outlined text-[20px] <%= current_page?(root_path) ? 'text-primary-container' : '' %>">home</span>
       <span class="font-medium">Inicio</span>
     </a>
-    <a href="#" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
-      <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+    <a href="<%= nueva_lectura_path %>" class="flex items-center gap-3 px-4 py-3 <%= current_page?(nueva_lectura_path) ? 'bg-primary-container/15 border-l-4 border-primary-container text-on-surface' : 'text-on-surface-variant hover:bg-white/5' %> rounded-r-lg transition-all group">
+      <span class="material-symbols-outlined text-[20px] <%= current_page?(nueva_lectura_path) ? 'text-primary-container' : '' %>">auto_awesome</span>
       <span>Nueva Lectura</span>
       <span class="ml-auto w-6 h-6 bg-primary-container rounded-md flex items-center justify-center">
         <span class="material-symbols-outlined text-xs text-on-primary-container">add</span>
       </span>
     </a>
-    <a href="#" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
-      <span class="material-symbols-outlined text-[20px]">auto_stories</span>
+    <a href="<%= historial_path %>" class="flex items-center gap-3 px-4 py-3 <%= current_page?(historial_path) ? 'bg-primary-container/15 border-l-4 border-primary-container text-on-surface' : 'text-on-surface-variant hover:bg-white/5' %> rounded-r-lg transition-all group">
+      <span class="material-symbols-outlined text-[20px] <%= current_page?(historial_path) ? 'text-primary-container' : '' %>">auto_stories</span>
       <span>Mis Lecturas</span>
     </a>
-    <a href="#" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
-      <span class="material-symbols-outlined text-[20px]">bookmark</span>
-      <span>Lecturas Guardadas</span>
+    <a href="<%= biblioteca_path %>" class="flex items-center gap-3 px-4 py-3 <%= current_page?(biblioteca_path) ? 'bg-primary-container/15 border-l-4 border-primary-container text-on-surface' : 'text-on-surface-variant hover:bg-white/5' %> rounded-r-lg transition-all group">
+      <span class="material-symbols-outlined text-[20px] <%= current_page?(biblioteca_path) ? 'text-primary-container' : '' %>">bookmark</span>
+      <span>Biblioteca de Cartas</span>
     </a>
-    <a href="#" class="flex items-center justify-between px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
+    <a href="<%= agenda_path %>" class="flex items-center gap-3 px-4 py-3 <%= current_page?(agenda_path) ? 'bg-primary-container/15 border-l-4 border-primary-container text-on-surface' : 'text-on-surface-variant hover:bg-white/5' %> rounded-r-lg transition-all group">
       <div class="flex items-center gap-3">
-        <span class="material-symbols-outlined text-[20px]">flare</span>
-        <span>Tirada Diaria</span>
+        <span class="material-symbols-outlined text-[20px] <%= current_page?(agenda_path) ? 'text-primary-container' : '' %>">calendar_month</span>
+        <span>Agenda Espiritual</span>
       </div>
-      <span class="bg-primary-container text-[10px] px-2 py-0.5 rounded font-bold text-on-primary-container uppercase tracking-tighter">Nuevo</span>
     </a>
-    <a href="#" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
+    <a href="<%= nueva_lectura_path %>" class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
       <span class="material-symbols-outlined text-[20px]">favorite</span>
       <span>Compatibilidad</span>
     </a>
@@ -66,7 +65,7 @@
       <span class="material-symbols-outlined text-[20px]">grid_view</span>
       <span>Categorías</span>
     </a>
-    <a href="<%= blog_post_path(1) %>" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
+    <a href="<%= biblioteca_path %>" class="flex items-center gap-3 px-4 py-2.5 <%= current_page?(biblioteca_path) ? 'bg-white/10 text-on-surface' : 'text-on-surface-variant hover:bg-white/5' %> rounded-lg transition-all group">
       <span class="material-symbols-outlined text-[20px]">style</span>
       <span>Significados</span>
     </a>

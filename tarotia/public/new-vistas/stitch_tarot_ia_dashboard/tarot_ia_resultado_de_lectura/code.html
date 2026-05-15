@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#2d2a5b",
+                    "on-secondary-container": "#b3afe9",
+                    "tertiary-container": "#a15100",
+                    "tertiary": "#ffb784",
+                    "surface-container": "#221d2e",
+                    "surface-container-high": "#2d2739",
+                    "on-background": "#e9def6",
+                    "tertiary-fixed": "#ffdcc6",
+                    "emerald-abundance": "#10B981",
+                    "on-primary": "#3f008e",
+                    "mystic-violet-950": "#2E1065",
+                    "surface-container-lowest": "#100b1b",
+                    "surface-container-low": "#1e1929",
+                    "surface-tint": "#d2bbff",
+                    "on-tertiary-fixed-variant": "#713700",
+                    "surface-variant": "#383244",
+                    "on-secondary-fixed-variant": "#444173",
+                    "cyan-ethereal": "#06B6D4",
+                    "primary-fixed-dim": "#d2bbff",
+                    "on-surface-variant": "#ccc3d8",
+                    "outline-variant": "#4a4455",
+                    "outline": "#958da1",
+                    "indigo-night-700": "#4338CA",
+                    "rose-passion": "#F43F5E",
+                    "error": "#ffb4ab",
+                    "gold-mystic-400": "#FBBF24",
+                    "on-secondary-fixed": "#181445",
+                    "secondary-fixed-dim": "#c4c1fb",
+                    "on-primary-fixed": "#25005a",
+                    "on-surface": "#e9def6",
+                    "on-primary-fixed-variant": "#5a00c6",
+                    "tertiary-fixed-dim": "#ffb784",
+                    "secondary": "#c4c1fb",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#732ee4",
+                    "on-error": "#690005",
+                    "surface-dim": "#161121",
+                    "inverse-on-surface": "#332e3f",
+                    "secondary-container": "#444173",
+                    "indigo-night-800": "#312E81",
+                    "gold-mystic": "#F59E0B",
+                    "surface": "#161121",
+                    "on-tertiary-fixed": "#301400",
+                    "primary-container": "#7c3aed",
+                    "on-tertiary-container": "#ffe0cd",
+                    "inverse-surface": "#e9def6",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#eaddff",
+                    "mystic-violet-400": "#A78BFA",
+                    "background": "#161121",
+                    "on-primary-container": "#ede0ff",
+                    "surface-container-highest": "#383244",
+                    "surface-bright": "#3c3648",
+                    "primary": "#d2bbff",
+                    "mystic-violet-50": "#F5F3FF",
+                    "secondary-fixed": "#e3dfff",
+                    "on-tertiary": "#4f2500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "unit": "4px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-sm": ["Inter"],
+                    "label-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .card-aura {
+            filter: drop-shadow(0 0 20px rgba(124, 58, 237, 0.4));
+        }
+        .cosmic-bg {
+            background-color: #0F0A1A;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
+        }
+        .sidebar-active {
+            background-color: #7c3aed;
+            color: #ede0ff;
+        }
+        .pro-gradient {
+            background: linear-gradient(90deg, #F59E0B, #FBBF24);
+        }
+    </style>
+</head>
+<body class="cosmic-bg text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 h-full w-64 bg-surface-container-low/70 backdrop-blur-xl border-r border-white/5 shadow-xl flex flex-col p-gutter gap-4 z-50">
+<div class="mb-4">
+<h1 class="font-headline-sm text-headline-sm text-mystic-violet-400 tracking-tight">TAROT IA</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">Tu destino, revelado</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1">auto_awesome</span>
+<span class="font-body-sm text-body-sm">Oracle</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 bg-primary-container text-on-primary-container rounded-lg font-semibold group" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1" style="font-variation-settings: 'FILL' 1;">style</span>
+<span class="font-body-sm text-body-sm">Readings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1">history</span>
+<span class="font-body-sm text-body-sm">History</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1">collections</span>
+<span class="font-body-sm text-body-sm">Gallery</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1">psychology_alt</span>
+<span class="font-body-sm text-body-sm">AI Chat</span>
+</a>
+<div class="mt-8 pt-4 border-t border-white/5">
+<p class="px-4 text-[10px] uppercase tracking-widest text-outline mb-2">Account</p>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1">logout</span>
+<span class="font-body-sm text-body-sm">Logout</span>
+</a>
+</div>
+</nav>
+<div class="mt-auto glass-card rounded-xl p-4 flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30">
+<img alt="Alexandra Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHpUDfMrZDobraX8MDO6XGcKIQEXZmxfFTprDXHCDhWzntO4tJYMp1qRAYN8-nn7A7y2N68-6W62cdg6Ci8TFPzw5YlMyZuZDkgWyrSrayjWB68LlqX9NVIiD53Kp0wPcm5XxU_Uv5c-BY5LaC_l2aXYU4zB4ONrtcTycq7dgtsD3PWJg0Y4P-RtPrY7ia2RJuLO3oEzF2Gd-W8RdQwvNZnU75acNUyEhD9itdjWX53UyWQpxqxBn6tZprMLPwtdJKbnewqeSJ6vVT"/>
+</div>
+<div>
+<p class="text-body-sm font-bold leading-none">Alexandra</p>
+<span class="text-[10px] text-gold-mystic-400 font-label-mono">FREE PLAN</span>
+</div>
+</div>
+<button class="pro-gradient text-on-tertiary-fixed font-bold py-2 rounded-lg text-body-sm transition-transform active:scale-95">Upgrade Now</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 h-screen overflow-y-auto relative pb-20">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 flex justify-between items-center px-margin-desktop py-4 w-full bg-surface-container/70 backdrop-blur-xl border-b border-white/5 shadow-sm">
+<div class="flex items-center gap-8">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-1.5 w-64 text-body-sm focus:ring-1 focus:ring-primary placeholder-on-surface-variant/50" placeholder="Search readings, cards..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 text-on-surface-variant transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-rose-passion rounded-full"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">mail</span>
+</button>
+<div class="h-8 w-[1px] bg-white/10 mx-2"></div>
+<button class="pro-gradient text-on-tertiary-fixed px-4 py-1.5 rounded-full font-bold text-body-sm hover:opacity-90 transition-opacity">PRO</button>
+</div>
+</header>
+<!-- Reading Content -->
+<div class="max-w-container-max mx-auto px-margin-desktop py-8">
+<!-- Header Section -->
+<div class="mb-12">
+<div class="flex items-center gap-2 text-primary font-label-mono mb-2">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+<span>18 MAYO 2024 • 10:30 AM</span>
+</div>
+<h2 class="font-display-lg text-display-lg mb-4">¿Qué viene para mí en el amor?</h2>
+<div class="flex gap-2">
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-body-sm border border-primary/20">Pasado, Presente, Futuro</span>
+<span class="bg-cyan-ethereal/10 text-cyan-ethereal px-3 py-1 rounded-full text-body-sm border border-cyan-ethereal/20">Lectura de Amor</span>
+</div>
+</div>
+<!-- The Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+<!-- Past Card -->
+<div class="flex flex-col items-center">
+<span class="font-label-mono text-outline mb-6 tracking-widest">PASADO</span>
+<div class="relative group cursor-pointer transition-transform duration-500 hover:-translate-y-4">
+<div class="absolute inset-0 bg-primary/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<img class="w-full max-w-[280px] aspect-[2/3] rounded-xl border border-white/20 card-aura object-cover" data-alt="A vintage-style tarot card illustration of 'The Empress' sitting on a lush garden throne, surrounded by golden wheat and pink roses. The lighting is ethereal and celestial, with glowing purple and indigo cosmic dust floating around the card edges, creating a mystical aura against a deep dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoA0LIbAIaMnbAgPhEZzK-Gu6yjabfqGO6iosgOQlrkpeOEzUgLGEBP_VOf_BInZIyYUFmSv-wEv_RjPYoOqIs1wdL8Y_7SAWETMf6Yq4CQaMRa2RSp29ardQe2i3yhsbA2c7hEo9mD0P2PtSZBmZ-bS_Engnve5sn2-JoMjjc9KB79bTKPPMzrW5I_JYcCQY3SGS5xVLx3FxtzE6skWxMG6vDuZ1KoDaBDpyO3YzoiBS4wZoVhWxlgDr7WWf6l35fqMhDinRwYL0c"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm mt-6 text-primary">La Emperatriz</h3>
+<p class="text-body-sm text-on-surface-variant text-center px-4">Abundancia, crecimiento y la influencia femenina en tu historia reciente.</p>
+</div>
+<!-- Present Card -->
+<div class="flex flex-col items-center">
+<span class="font-label-mono text-outline mb-6 tracking-widest">PRESENTE</span>
+<div class="relative group cursor-pointer transition-transform duration-500 hover:-translate-y-4">
+<div class="absolute inset-0 bg-cyan-ethereal/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<img class="w-full max-w-[280px] aspect-[2/3] rounded-xl border border-white/20 card-aura object-cover" data-alt="A detailed tarot card of 'The Lovers' depicting two figures bathed in a soft golden glow from an angelic presence above. The style is classic occult art with vibrant blues and warm ambers, set within a sophisticated dark cosmic interface with glassmorphism overlays and soft atmospheric lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC0PvWWaZUpBxf7JRn3ydl0byZv1b3IymWcKJGcL0_yiV2d3L1VSBmZSjXvhbeYl_rpDc19eLl2YrKilbgmsRs-aBxjVeZkTmnZektbTXvbft1lxoHbaYvXU8ko3x5zP8d67p1HFk9mULyFw3-2B6uQqZt-ltMmKA5a__FijX4qwO1Sh08ITssSBZ_t2aBS7V86XRnQ9SHrxDRWxTxtpQDW0yQmyfjNgWTjH4k9tfXwvQ85Itq89-oOsdQ3ECTpDvESKTXGAUz5_1t"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm mt-6 text-cyan-ethereal">Los Enamorados</h3>
+<p class="text-body-sm text-on-surface-variant text-center px-4">Una decisión importante o una conexión profunda está definiendo tu ahora.</p>
+</div>
+<!-- Future Card -->
+<div class="flex flex-col items-center">
+<span class="font-label-mono text-outline mb-6 tracking-widest">FUTURO</span>
+<div class="relative group cursor-pointer transition-transform duration-500 hover:-translate-y-4">
+<div class="absolute inset-0 bg-gold-mystic/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<img class="w-full max-w-[280px] aspect-[2/3] rounded-xl border border-white/20 card-aura object-cover" data-alt="The World tarot card featuring a graceful figure dancing inside a green laurel wreath, surrounded by four elemental guardians in the corners. The scene is illuminated by brilliant cosmic energy beams and sparkling stars, maintaining a premium high-end spiritual aesthetic with deep indigo and gold tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCjY5mYjA3l8dIyMTNOTIYfo26HTidCt1H5ZqPSY1-Y8W1-vhlEl8JIg4PqT78pv1EqmM0bAtQ2KooqvkXUMJkIcV9ZUKPlhlsAwru96qbEY-_UqHCpaaMGRjVlV21FMWY7cEZ6GE06RPJ2VemGGvFmAhPYLH3qnVxzRJC-Xh14Lah5uFF8jeaF-4UaXw3DTEqWHifNRF_K-EraXc1jnMlFV5o1A_kEFvRfQh5jiFy193iFRnMBHi2wFqJILmDRTdCk29I4Nl1SRBf"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm mt-6 text-gold-mystic">El Mundo</h3>
+<p class="text-body-sm text-on-surface-variant text-center px-4">Cierre de ciclo, éxito total y plenitud emocional en el horizonte cercano.</p>
+</div>
+</div>
+<!-- AI Interpretation Section -->
+<section class="max-w-4xl mx-auto">
+<div class="glass-card rounded-3xl p-gutter overflow-hidden relative">
+<!-- Subtle background decoration -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 blur-[100px]"></div>
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">psychology_alt</span>
+</div>
+<h2 class="font-headline-md text-headline-md">Interpretación del Oráculo IA</h2>
+</div>
+<div class="space-y-6 text-body-lg text-on-surface/90">
+<p>
+                            Tu lectura revela una transición poderosa desde la seguridad de <span class="text-primary font-semibold">La Emperatriz</span> hacia la resolución que propone <span class="text-gold-mystic font-semibold">El Mundo</span>. En el amor, esto sugiere que has cultivado una base sólida de amor propio o estabilidad emocional en el pasado que ahora está siendo puesta a prueba o celebrada.
+                        </p>
+<p>
+                            Con <span class="text-cyan-ethereal font-semibold">Los Enamorados</span> en el centro, el mensaje es claro: el momento actual requiere autenticidad absoluta. No se trata solo de elegir a una persona, sino de elegir un camino que sea fiel a tu esencia. La dualidad que sientes se resolverá pronto, ya que el destino apunta hacia una integración total.
+                        </p>
+<div class="bg-white/5 rounded-2xl p-6 border-l-4 border-primary mt-8">
+<h4 class="font-label-mono text-primary uppercase tracking-widest mb-3">Consejo del Destino</h4>
+<p class="italic font-headline-sm text-headline-sm leading-relaxed">
+                                "No temas al cierre de la puerta actual, pues lo que viene no es solo un nuevo capítulo, sino la obra completa que has estado esperando manifestar."
+                            </p>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 mt-12 pt-8 border-t border-white/5">
+<button class="bg-primary-container text-on-primary-container font-bold px-8 py-3 rounded-full flex items-center gap-2 hover:opacity-90 transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined">bookmark</span>
+                            Guardar Lectura
+                        </button>
+<button class="bg-surface-variant/50 border border-white/10 text-on-surface px-8 py-3 rounded-full flex items-center gap-2 hover:bg-surface-variant transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined">share</span>
+                            Compartir
+                        </button>
+<button class="ml-auto text-primary border border-primary/30 px-8 py-3 rounded-full flex items-center gap-2 hover:bg-primary/10 transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined">refresh</span>
+                            Nueva Consulta
+                        </button>
+</div>
+</div>
+</section>
+<!-- Bottom Floating Elements (Visual Polish) -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="glass-card rounded-2xl p-6 flex items-center gap-6">
+<div class="w-16 h-16 rounded-xl bg-indigo-night-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary-fixed text-3xl">star</span>
+</div>
+<div>
+<h5 class="font-bold text-body-lg">Sintonía Energética</h5>
+<p class="text-body-sm text-on-surface-variant">Tu energía hoy es compatible con signos de Fuego y Tierra.</p>
+</div>
+</div>
+<div class="glass-card rounded-2xl p-6 flex items-center gap-6">
+<div class="w-16 h-16 rounded-xl bg-mystic-violet-950 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">auto_stories</span>
+</div>
+<div>
+<h5 class="font-bold text-body-lg">Glosario de Arcanos</h5>
+<p class="text-body-sm text-on-surface-variant">Explora más sobre el simbolismo de estas 3 cartas en tu biblioteca.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating FAB (Suppressed based on logic but included as template anchor) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 z-50">
+<span class="material-symbols-outlined">chat</span>
+</button>
+</main>
+<!-- Mobile Bottom NavBar (Hidden on desktop) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container/90 backdrop-blur-xl border-t border-white/5 flex justify-around items-center px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[10px] font-label-mono">Oracle</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">style</span>
+<span class="text-[10px] font-label-mono font-bold">Readings</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-label-mono">History</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-label-mono">Profile</span>
+</button>
+</nav>
+</body></html>

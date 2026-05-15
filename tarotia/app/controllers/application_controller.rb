@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
   private
 
   def logged_in?
-    session[:user_id].present?
+    session[:user_id].present? && current_user.present?
   end
 
   def current_user
-    if logged_in?
-      @current_user ||= { id: 1, name: 'Alexandra', email: 'alexandra@universo.com', plan: 'PRO' }
+    if session[:user_id].present?
+      @current_user ||= User.find_by(id: session[:user_id])
     end
   end
 end

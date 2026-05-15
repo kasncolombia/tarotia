@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TAROT IA - Detalle de Carta: El Mago</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#2d2a5b",
+            "on-secondary-container": "#b3afe9",
+            "tertiary-container": "#a15100",
+            "tertiary": "#ffb784",
+            "surface-container": "#221d2e",
+            "surface-container-high": "#2d2739",
+            "on-background": "#e9def6",
+            "tertiary-fixed": "#ffdcc6",
+            "emerald-abundance": "#10B981",
+            "on-primary": "#3f008e",
+            "mystic-violet-950": "#2E1065",
+            "surface-container-lowest": "#100b1b",
+            "surface-container-low": "#1e1929",
+            "surface-tint": "#d2bbff",
+            "on-tertiary-fixed-variant": "#713700",
+            "surface-variant": "#383244",
+            "on-secondary-fixed-variant": "#444173",
+            "cyan-ethereal": "#06B6D4",
+            "primary-fixed-dim": "#d2bbff",
+            "on-surface-variant": "#ccc3d8",
+            "outline-variant": "#4a4455",
+            "outline": "#958da1",
+            "indigo-night-700": "#4338CA",
+            "rose-passion": "#F43F5E",
+            "error": "#ffb4ab",
+            "gold-mystic-400": "#FBBF24",
+            "on-secondary-fixed": "#181445",
+            "secondary-fixed-dim": "#c4c1fb",
+            "on-primary-fixed": "#25005a",
+            "on-surface": "#e9def6",
+            "on-primary-fixed-variant": "#5a00c6",
+            "tertiary-fixed-dim": "#ffb784",
+            "secondary": "#c4c1fb",
+            "on-error-container": "#ffdad6",
+            "inverse-primary": "#732ee4",
+            "on-error": "#690005",
+            "surface-dim": "#161121",
+            "inverse-on-surface": "#332e3f",
+            "secondary-container": "#444173",
+            "indigo-night-800": "#312E81",
+            "gold-mystic": "#F59E0B",
+            "surface": "#161121",
+            "on-tertiary-fixed": "#301400",
+            "primary-container": "#7c3aed",
+            "on-tertiary-container": "#ffe0cd",
+            "inverse-surface": "#e9def6",
+            "error-container": "#93000a",
+            "primary-fixed": "#eaddff",
+            "mystic-violet-400": "#A78BFA",
+            "background": "#161121",
+            "on-primary-container": "#ede0ff",
+            "surface-container-highest": "#383244",
+            "surface-bright": "#3c3648",
+            "primary": "#d2bbff",
+            "mystic-violet-50": "#F5F3FF",
+            "secondary-fixed": "#e3dfff",
+            "on-tertiary": "#4f2500"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-desktop": "32px",
+            "gutter": "24px",
+            "container-max": "1280px",
+            "unit": "4px",
+            "margin-mobile": "16px"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Playfair Display"],
+            "headline-sm": ["Playfair Display"],
+            "headline-md": ["Playfair Display"],
+            "display-lg-mobile": ["Playfair Display"],
+            "body-sm": ["Inter"],
+            "label-mono": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+            "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .base-glass {
+      backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Background Blobs -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+<div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-mystic-violet-950/30 rounded-full blur-[120px]"></div>
+<div class="absolute top-[40%] -right-[10%] w-[50%] h-[50%] bg-indigo-night-800/20 rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-[10%] left-[20%] w-[40%] h-[40%] bg-primary-container/10 rounded-full blur-[120px]"></div>
+</div>
+<!-- TopNavBar (JSON Execution) -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface-container/70 backdrop-blur-xl border-b border-white/5 shadow-sm flex justify-between items-center px-margin-desktop py-4">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold tracking-tight text-primary">TAROT IA</h1>
+</div>
+<div class="flex-1 max-w-xl mx-8 hidden md:block">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg pl-10 pr-4 py-2 text-body-sm focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Buscar cartas, lecturas, artículos..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-4 items-center">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">mail</button>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-white/10">
+<div class="text-right hidden sm:block">
+<p class="font-body-sm font-bold">Alexandra</p>
+<span class="bg-gold-mystic text-on-secondary px-2 py-0.5 rounded-full text-[10px] font-bold">PRO</span>
+</div>
+<img alt="Alexandra" class="w-10 h-10 rounded-full border-2 border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArehp5pSf3necy5cjowkgIBSAKgn8AzGk6oUqXF-r8RD6ch35Xg4kge2_cMm7eWd5SxcbYZodomfft3T-3e3GBUiaKaJerLsG8nQ0uVzFA8HI7h7vc9GfJVZ0CZxB-4_aKfvO1liIpvG1rKC49x4ybCbkSeKGrW2NliW1Eb0wsTf3EIqlNu4zS1S7wdA6OZ3Y3VF3bV929Zhfq7Ren0NxiVJ1xq8tr3xcsMHpNmFN_8hCITTROWqYnvxEVyhYEyzjcpxB3V7D3e7VV"/>
+</div>
+</div>
+</nav>
+<!-- Layout Container -->
+<div class="flex pt-20">
+<!-- SideNavBar (JSON Execution) -->
+<aside class="fixed left-0 h-[calc(100vh-80px)] w-64 bg-surface-container-low/70 backdrop-blur-xl border-r border-white/5 shadow-xl p-gutter flex flex-col gap-4 hidden md:flex overflow-y-auto">
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">auto_awesome</span>
+<span class="font-body-sm">Oracle</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">style</span>
+<span class="font-body-sm">Readings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">history</span>
+<span class="font-body-sm">History</span>
+</a>
+<!-- Active Tab: Gallery -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-semibold group shadow-lg shadow-primary-container/20" href="#">
+<span class="material-symbols-outlined translate-x-1 duration-300">collections</span>
+<span class="font-body-sm">Gallery</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">psychology_alt</span>
+<span class="font-body-sm">AI Chat</span>
+</a>
+</div>
+<div class="mt-auto space-y-1">
+<p class="px-4 text-[10px] font-label-mono text-outline uppercase tracking-widest mb-2">Account</p>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300">settings</span>
+<span class="font-body-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 duration-300 text-rose-passion">logout</span>
+<span class="font-body-sm">Logout</span>
+</a>
+<div class="mt-6 p-4 rounded-xl bg-gradient-to-br from-indigo-night-800 to-mystic-violet-950 border border-white/10">
+<p class="text-xs font-bold text-gold-mystic mb-1">Upgrade Now</p>
+<p class="text-[10px] text-on-surface-variant mb-3 leading-relaxed">Accede a lecturas ilimitadas y consejos personalizados de IA.</p>
+<button class="w-full bg-gold-mystic text-on-secondary font-bold py-2 rounded-lg text-xs hover:scale-[1.02] transition-transform">Hazte PRO</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 md:ml-64 p-margin-mobile md:p-margin-desktop">
+<!-- Back Action -->
+<div class="mb-8">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+<span class="font-label-mono text-xs uppercase tracking-widest">Volver a la Galería</span>
+</button>
+</div>
+<!-- Detail Grid -->
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+<!-- Left: Card Illustration -->
+<div class="lg:col-span-5 flex flex-col gap-6 sticky top-24">
+<div class="relative group aspect-[2/3.5] rounded-2xl overflow-hidden glass-card shadow-2xl transition-transform duration-500 hover:scale-[1.01]">
+<img class="w-full h-full object-cover" data-alt="A highly detailed and ornate Tarot card illustration of 'The Magician'. The figure stands before a table with mystical tools like a cup, sword, and pentacle, surrounded by glowing arcane symbols. The art style is deep and atmospheric with rich purples, glowing violets, and gold accents, featuring sharp lighting and a sense of infinite cosmic energy. The overall aesthetic is dark, premium, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPL3EbLI7ROmwIHTg2JhJT_CUo27gC8Rd0VfVKvFCedpHj2mC5XIX6Q8rR9WmtAtd5Wny4Yc1tQLmfBn8cZoi2kT7mnGgVxm987BRt1Q02XAA3tFHE4mskOh3gC80Y1k8yyHZQDHShSfaqzbDA0oJAY2Fgtg0TYpNRptl27Qw1X5CVEIr-EnwFqwgEpKxzJyJSn27PQ2-Jun4xLI6krkwJHFb8Hv0jyxCDdz4S_VssrSHRZ3Oxz4WPygqxkhwWBZTywRNebBfTSeuT"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-8 left-0 w-full text-center px-6">
+<span class="font-label-mono text-xs text-primary mb-2 block tracking-widest">ARCANO MAYOR I</span>
+<h2 class="font-display-lg text-white drop-shadow-lg">El Mago</h2>
+</div>
+</div>
+<!-- Keywords / Chips -->
+<div class="flex flex-wrap gap-2 justify-center">
+<span class="px-4 py-2 rounded-full glass-card text-primary font-label-mono text-xs flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">bolt</span> Manifestación
+            </span>
+<span class="px-4 py-2 rounded-full glass-card text-cyan-ethereal font-label-mono text-xs flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">stat_3</span> Poder
+            </span>
+<span class="px-4 py-2 rounded-full glass-card text-emerald-abundance font-label-mono text-xs flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">play_arrow</span> Acción
+            </span>
+</div>
+</div>
+<!-- Right: Detailed Content -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Introduction -->
+<section class="glass-card p-gutter rounded-2xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+<h3 class="font-headline-sm text-on-surface">Significado General</h3>
+</div>
+<p class="text-on-surface-variant font-body-lg leading-relaxed">
+              El Mago es el maestro de los elementos y el puente entre el cielo y la tierra. Representa la capacidad de tomar todos los recursos disponibles —físicos, mentales y espirituales— y manifestar tu voluntad en la realidad. Es un recordatorio de que posees todas las herramientas necesarias para alcanzar tus objetivos; solo necesitas concentrar tu intención y actuar con determinación.
+            </p>
+</section>
+<!-- Bento Detail Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Amor y Relaciones -->
+<div class="glass-card p-gutter rounded-2xl border-l-4 border-rose-passion/50">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-rose-passion">favorite</span>
+<h4 class="font-body-md font-bold text-on-surface">Amor y Relaciones</h4>
+</div>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">
+                Indica una fase de iniciativa y atracción magnética. Si estás soltero, es el momento de dar el primer paso. En pareja, sugiere una comunicación fluida y la creación de nuevos proyectos juntos.
+              </p>
+</div>
+<!-- Trabajo y Dinero -->
+<div class="glass-card p-gutter rounded-2xl border-l-4 border-gold-mystic/50">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-gold-mystic">payments</span>
+<h4 class="font-body-md font-bold text-on-surface">Trabajo y Dinero</h4>
+</div>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">
+                Éxito a través de la destreza y la innovación. Es un periodo ideal para emprender, negociar o cambiar de rumbo profesional. La suerte favorece a quienes actúan con inteligencia y rapidez.
+              </p>
+</div>
+</div>
+<!-- Simbología Section -->
+<section class="glass-card p-gutter rounded-2xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-cyan-ethereal text-3xl">token</span>
+<h3 class="font-headline-sm text-on-surface">Simbología</h3>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 rounded-lg bg-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">all_inclusive</span>
+</div>
+<div>
+<p class="font-bold text-on-surface mb-1">El Infinito (Lemniscata)</p>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">Simboliza la conexión eterna entre los planos espiritual y material, y el flujo interminable de energía creativa que el Mago canaliza.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 rounded-lg bg-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">tools_wrench</span>
+</div>
+<div>
+<p class="font-bold text-on-surface mb-1">Los Cuatro Elementos</p>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">La copa, la espada, el bastón y el pentáculo sobre su mesa representan el dominio sobre las emociones, el intelecto, la pasión y la materia.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="w-10 h-10 rounded-lg bg-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">vertical_align_center</span>
+</div>
+<div>
+<p class="font-bold text-on-surface mb-1">Brazo Arriba, Brazo Abajo</p>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">El gesto de "Como es arriba, es abajo". El Mago actúa como un conducto para traer las ideas del cosmos al mundo físico.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<div class="flex gap-4 items-center justify-end py-8">
+<button class="px-6 py-3 rounded-lg border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors font-bold text-body-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">share</span> Compartir
+            </button>
+<button class="px-8 py-3 rounded-lg bg-primary-container text-on-primary-container hover:scale-105 transition-transform font-bold text-body-sm flex items-center gap-2 shadow-lg shadow-primary-container/30">
+<span class="material-symbols-outlined text-lg">auto_fix</span> Tirada Especial
+            </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Bottom Nav Mobile Only -->
+<nav class="fixed bottom-0 left-0 w-full bg-surface-container/90 backdrop-blur-xl md:hidden flex justify-around items-center py-4 px-6 border-t border-white/5 z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[10px]">Oracle</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">style</span>
+<span class="text-[10px]">Readings</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">collections</span>
+<span class="text-[10px] font-bold">Gallery</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">psychology_alt</span>
+<span class="text-[10px]">AI</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px]">Profile</span>
+</button>
+</nav>
+</body></html>

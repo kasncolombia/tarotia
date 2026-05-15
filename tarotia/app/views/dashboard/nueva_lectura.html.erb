@@ -1,0 +1,46 @@
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+  <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-mystic-violet-950/30 rounded-full blur-[120px]"></div>
+  <div class="absolute bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-indigo-night-800/20 rounded-full blur-[120px]"></div>
+</div>
+
+<div class="max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-8">
+  <div class="mb-8">
+    <a href="<%= root_path %>" class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-6 group">
+      <span class="material-symbols-outlined text-lg">arrow_back</span>
+      <span class="text-xs uppercase tracking-widest font-bold">Volver al inicio</span>
+    </a>
+    <h2 class="text-4xl md:text-5xl font-bold text-on-surface mb-2">Nueva Lectura</h2>
+    <p class="text-on-surface-variant">Elige el tipo de tirada que resuene con tu energía.</p>
+  </div>
+
+  <!-- Reading Types Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <% [
+      { name: 'Lectura Rápida', desc: 'Una carta para respuestas inmediatas y claridad instantánea.', icon: 'bolt', cards: '1 carta', color: 'bg-primary/10 text-primary' },
+      { name: 'Pasado, Presente, Futuro', desc: 'Tres cartas que revelan la cronología de tu situación.', icon: 'timelapse', cards: '3 cartas', color: 'bg-cyan-ethereal/10 text-cyan-ethereal' },
+      { name: 'Cruz Celta', desc: 'Diez cartas para un análisis profundo y detallado de tu vida.', icon: 'grain', cards: '10 cartas', color: 'bg-mystic-violet-400/10 text-mystic-violet-400' },
+      { name: 'Lectura de Amor', desc: 'Enfocada en relaciones, conexiones y asuntos del corazón.', icon: 'favorite', cards: '3 cartas', color: 'bg-rose-passion/10 text-rose-passion' },
+      { name: 'Lectura de Dinero', desc: 'Para asuntos financieros, carrera y abundancia.', icon: 'payments', cards: '3 cartas', color: 'bg-gold-mystic/10 text-gold-mystic' },
+      { name: 'Árbol de la Vida', desc: 'Tirada avanzada de 22 cartas para una guía espiritual completa.', icon: 'psychology', cards: '22 cartas', color: 'bg-emerald-abundance/10 text-emerald-abundance' }
+    ].each do |type| %>
+      <a href="<%= resultado_lectura_path %>" class="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
+        <div class="w-12 h-12 <%= type[:color] %> rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined"><%= type[:icon] %></span>
+        </div>
+        <h3 class="text-lg font-bold text-on-surface mb-2"><%= type[:name] %></h3>
+        <p class="text-sm text-on-surface-variant mb-4 leading-relaxed"><%= type[:desc] %></p>
+        <span class="text-xs text-primary bg-primary/10 px-3 py-1 rounded-full"><%= type[:cards] %></span>
+      </a>
+    <% end %>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="mt-12 glass-card p-8 rounded-2xl text-center">
+    <div class="w-16 h-16 rounded-2xl bg-gold-mystic/10 flex items-center justify-center mx-auto mb-4">
+      <span class="material-symbols-outlined text-gold-mystic text-3xl">workspace_premium</span>
+    </div>
+    <h3 class="text-2xl font-bold text-on-surface mb-2">¿Buscas algo más profundo?</h3>
+    <p class="text-on-surface-variant max-w-md mx-auto mb-6">Desbloquea tiradas avanzadas y lecturas ilimitadas con Tarot PRO.</p>
+    <button class="px-8 py-3 bg-gold-mystic text-on-primary font-bold rounded-xl hover:scale-105 transition-transform shadow-lg shadow-gold-mystic/30">Hazte PRO</button>
+  </div>
+</div>
