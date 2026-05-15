@@ -1,6 +1,6 @@
 <aside class="w-[280px] bg-surface border-r border-white/5 flex flex-col p-6 overflow-y-auto shrink-0 custom-scrollbar hidden md:flex">
   <!-- Logo -->
-  <div class="mb-10 px-4">
+  <a href="<%= root_path %>" class="mb-10 px-4 block cursor-pointer">
     <div class="flex items-center gap-3">
       <div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center shadow-lg shadow-primary-container/20">
         <span class="material-symbols-outlined text-on-primary-container text-2xl">auto_awesome</span>
@@ -10,7 +10,7 @@
         <span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Tu destino, revelado</span>
       </div>
     </div>
-  </div>
+  </a>
 
   <!-- SECTION 1: MAIN NAVIGATION -->
   <nav class="space-y-1 mb-8">
@@ -76,22 +76,58 @@
     </a>
   </nav>
 
+  <!-- Theme Toggle -->
+  <div class="flex items-center justify-between px-4 py-3 mb-4">
+    <span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">Apariencia</span>
+    <button id="theme-toggle" class="w-9 h-9 rounded-lg bg-surface-container-low border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/30 transition-all" onclick="toggleTheme()" type="button">
+      <span id="theme-icon" class="material-symbols-outlined text-[20px]">dark_mode</span>
+    </button>
+  </div>
+  <script>
+    function toggleTheme() {
+      var html = document.documentElement;
+      var current = html.className;
+      var next = current === 'dark' ? 'light' : 'dark';
+      html.className = next;
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.getElementById('theme-icon').textContent = next === 'dark' ? 'dark_mode' : 'light_mode';
+    }
+    (function() {
+      var theme = localStorage.getItem('theme') || 'dark';
+      document.getElementById('theme-icon').textContent = theme === 'dark' ? 'dark_mode' : 'light_mode';
+    })();
+  </script>
+
   <!-- SECTION 3: ACCOUNT -->
   <div class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest mb-4 px-4">Cuenta</div>
-  <nav class="space-y-1 mb-8">
-    <a href="<%= perfil_path %>" class="flex items-center gap-3 px-4 py-2.5 <%= current_page?(perfil_path) ? 'bg-white/10 text-on-surface' : 'text-on-surface-variant hover:bg-white/5' %> rounded-lg transition-all group">
-      <span class="material-symbols-outlined text-[20px]">person</span>
-      <span>Perfil</span>
-    </a>
-    <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
-      <span class="material-symbols-outlined text-[20px]">settings</span>
-      <span>Configuración</span>
-    </a>
-    <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
-      <span class="material-symbols-outlined text-[20px]">logout</span>
-      <span class="text-rose-passion">Cerrar sesión</span>
-    </a>
-  </nav>
+  <% if logged_in? %>
+    <nav class="space-y-1 mb-8">
+      <a href="<%= perfil_path %>" class="flex items-center gap-3 px-4 py-2.5 <%= current_page?(perfil_path) ? 'bg-white/10 text-on-surface' : 'text-on-surface-variant hover:bg-white/5' %> rounded-lg transition-all group">
+        <span class="material-symbols-outlined text-[20px]">person</span>
+        <span>Perfil</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
+        <span class="material-symbols-outlined text-[20px]">settings</span>
+        <span>Configuración</span>
+      </a>
+      <a href="<%= logout_path %>" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
+        <span class="material-symbols-outlined text-[20px]">logout</span>
+        <span class="text-rose-passion">Cerrar sesión</span>
+      </a>
+    </nav>
+  <% else %>
+    <nav class="space-y-1 mb-8">
+      <a href="<%= login_path %>" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
+        <span class="material-symbols-outlined text-[20px]">login</span>
+        <span>Iniciar Sesión</span>
+      </a>
+      <a href="<%= registro_path %>" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-white/5 rounded-lg transition-all group">
+        <span class="material-symbols-outlined text-[20px]">person_add</span>
+        <span>Registrarse</span>
+      </a>
+    </nav>
+  <% end %>
 
   <!-- SECTION 4: PRO UPGRADE -->
   <div class="mt-auto pt-6">

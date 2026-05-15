@@ -1,4 +1,4 @@
-<div class="p-8 space-y-8">
+<div class="p-4 md:p-8 space-y-6  md:space-y-8">
   <!-- HEADER -->
   <header class="flex items-center justify-between">
     <div class="relative w-full max-w-xl">
@@ -12,43 +12,58 @@
     </div>
     
     <div class="flex items-center gap-6">
-      <button class="relative text-zinc-400 hover:text-white transition-colors">
+      <button class="relative text-zinc-400 hover:text-white transition-colors hidden md:block">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
         <span class="absolute top-0 right-0 w-2 h-2 bg-rose-500 rounded-full"></span>
       </button>
-      <div class="flex items-center gap-3">
-        <div class="text-right">
-          <p class="text-sm font-bold text-white leading-none">Alexandra</p>
-          <span class="text-[10px] text-mystic-gold font-bold uppercase">PRO</span>
+      <% if logged_in? %>
+        <div class="flex items-center gap-3">
+          <div class="text-right hidden md:block">
+            <p class="text-sm font-bold text-white leading-none">Alexandra</p>
+            <span class="text-[10px] text-mystic-gold font-bold uppercase">PRO</span>
+          </div>
+          <div class="w-10 h-10 rounded-full border-2 border-mystic-violet/30 p-0.5">
+            <img src="https://ui-avatars.com/api/?name=Alexandra&background=7C3AED&color=fff" class="w-full h-full rounded-full object-cover">
+          </div>
         </div>
-        <div class="w-10 h-10 rounded-full border-2 border-mystic-violet/30 p-0.5">
-          <img src="https://ui-avatars.com/api/?name=Alexandra&background=7C3AED&color=fff" class="w-full h-full rounded-full object-cover">
+      <% else %>
+        <div class="flex items-center gap-3">
+          <a href="<%= login_path %>" class="px-4 py-2 bg-primary-container text-on-primary-container text-sm font-bold rounded-lg hover:brightness-110 transition-all">Iniciar Sesión</a>
+          <a href="<%= registro_path %>" class="px-4 py-2 bg-white/10 backdrop-blur-md text-white text-sm font-bold rounded-lg border border-white/10 hover:bg-white/20 transition-all">Registrarse</a>
         </div>
-      </div>
+      <% end %>
     </div>
   </header>
 
+
+  
+
+
   <!-- HERO SECTION -->
-  <section class="relative h-[320px] rounded-[32px] overflow-hidden group">
-    <div class="absolute inset-0 bg-gradient-to-r from-[#1A1B4B] via-mystic-violet/40 to-[#1A1B4B]"></div>
-    <div class="absolute inset-0 opacity-40 mix-blend-overlay scale-110 group-hover:scale-100 transition-transform duration-1000" 
-         style="background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center;"></div>
-    
-    <div class="relative h-full flex flex-col justify-center px-12 z-10">
-      <span class="text-mystic-violet font-bold text-sm mb-2 tracking-wide text-white uppercase">Bienvenida de nuevo, Alexandra 🌙</span>
-      <h2 class="text-5xl font-bold max-w-2xl leading-tight mb-6 text-white">
+  <section class="relative rounded-3xl overflow-hidden border border-white/5 bg-surface-dark">
+    <div class="grid grid-cols-1 md:grid-cols-2 min-h-[300px] md:min-h-[340px]">
+      <div class="relative flex flex-col justify-center px-8 md:px-12 py-10 md:py-16 z-10">
+        <span class="text-mystic-violet font-bold text-sm mb-2 tracking-wide text-white uppercase"><%= logged_in? ? 'Bienvenida de nuevo' : 'Bienvenida' %>, <%= logged_in? ? current_user[:name] : 'Viajerx' %> 🌙</span>
+         <h2 class="text-5xl font-bold max-w-2xl leading-tight mb-6 text-white">
         Descubre tu destino con el poder del <span class="bg-gradient-to-r from-mystic-violet to-cyan-400 bg-clip-text text-transparent">Tarot IA</span>
       </h2>
-      <p class="text-zinc-300 max-w-lg mb-8 leading-relaxed">
+        <p class="text-zinc-300 max-w-lg mb-8 leading-relaxed">
         Conecta con tu intuición y recibe guía personalizada a través de lecturas inteligentes generadas por IA.
       </p>
-      <div class="flex gap-4">
+        <div class="flex gap-4">
         <button class="px-8 py-3 bg-mystic-violet text-white font-bold rounded-2xl shadow-xl shadow-mystic-violet/30 hover:scale-105 active:scale-95 transition-all">Nueva Lectura</button>
         <button class="px-8 py-3 bg-white/10 backdrop-blur-md text-white font-bold rounded-2xl border border-white/10 hover:bg-white/20 transition-all">Tirada del Día</button>
+      </div>
+      </div>
+
+      <div class="relative min-h-[200px] md:min-h-full">
+        <img src="/portada-hero-tarot.png" alt="Tarot IA" class="absolute inset-0 w-full h-full object-cover object-right" />
+        <div class="absolute inset-0 bg-gradient-to-r from-surface-dark via-surface-dark/60 to-transparent"></div>
       </div>
     </div>
   </section>
 
+  <!-- GRID DE TIPOS DE LECTURA -->
   <!-- GRID DE TIPOS DE LECTURA -->
   <section class="grid grid-cols-5 gap-4">
     <% [
@@ -70,49 +85,61 @@
   </section>
 
   <!-- ÚLTIMA LECTURA Y RECOMENDADOS -->
-  <div class="grid grid-cols-5 gap-6">
-    <div class="col-span-3 bg-[#1A1525]/50 border border-white/5 rounded-[32px] p-8">
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+    <!-- Tu última lectura -->
+    <div>
       <div class="flex items-center justify-between mb-6">
-        <h3 class="text-lg font-bold text-white">Tu última lectura</h3>
-        <a href="#" class="text-xs text-mystic-violet font-bold hover:underline">Ver todas ></a>
+        <h3 class="text-lg font-bold text-on-surface">Tu última lectura</h3>
+        <a href="#" class="text-xs text-primary font-bold hover:underline">Ver todas &gt;</a>
       </div>
-      <div class="space-y-6">
-        <div class="flex items-center gap-4">
-          <span class="bg-mystic-violet/20 text-mystic-violet text-[11px] font-bold px-3 py-1 rounded-full border border-mystic-violet/30">Pasado, Presente, Futuro</span>
-          <span class="text-[11px] text-zinc-500">18 Mayo 2024</span>
+      <div class="bg-surface-dark/50 border border-white/5 rounded-2xl p-6 md:p-8">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="bg-primary/20 text-primary text-[11px] font-bold px-3 py-1 rounded-lg">Pasado, Presente, Futuro</span>
+          <span class="text-[11px] text-on-surface-variant">18 Mayo 2024</span>
         </div>
-        <h4 class="text-2xl font-bold text-white">¿Qué viene para mí en el amor?</h4>
-        <div class="grid grid-cols-3 gap-4 py-4">
+        <h4 class="text-xl md:text-2xl font-bold text-on-surface mb-6 italic">¿Qué viene para mí en el amor?</h4>
+        <div class="grid grid-cols-3 gap-3 md:gap-4 mb-6">
           <% [
-            {label: 'Pasado', name: 'La Emperatriz'},
-            {label: 'Presente', name: 'Los Enamorados'},
-            {label: 'Futuro', name: 'El Mundo'}
+            {label: 'Pasado', name: 'La Emperatriz', img: '/emperatriz-tarot.png', meaning: 'Abundancia, crecimiento'},
+            {label: 'Presente', name: 'Los Enamorados', img: '/los-enamordos.png', meaning: 'Decisión importante'},
+            {label: 'Futuro', name: 'El Mundo', img: '/el-mundo.png', meaning: 'Cierre de ciclo, éxito'}
           ].each do |card| %>
-            <div class="relative aspect-[2/3] rounded-2xl overflow-hidden border border-white/10 bg-zinc-800 flex flex-col justify-end p-4">
-              <p class="text-[9px] font-bold text-zinc-400 uppercase"><%= card[:label] %></p>
-              <p class="text-sm font-bold text-white"><%= card[:name] %></p>
+            <div>
+              <p class="text-[10px] text-on-surface-variant uppercase tracking-tighter mb-2 text-center"><%= card[:label] %></p>
+              <div class="relative aspect-[2/3] rounded-xl overflow-hidden border border-primary/20 bg-surface-dark cursor-pointer hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 mb-2">
+                <img src="<%= card[:img] %>" alt="<%= card[:name] %>" class="absolute inset-0 w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-dark/90 via-surface-dark/20 to-transparent"></div>
+              </div>
+              <p class="text-[11px] font-bold text-on-surface text-center"><%= card[:name] %></p>
+              <p class="text-[9px] text-on-surface-variant text-center leading-tight"><%= card[:meaning] %></p>
             </div>
           <% end %>
         </div>
+        <button class="w-full py-3 bg-white/5 border border-white/10 text-on-surface text-xs font-bold rounded-xl hover:bg-white/10 transition-all">Ver interpretación completa</button>
       </div>
     </div>
 
-    <div class="col-span-2 space-y-6">
-      <h3 class="text-lg font-bold text-white">Recomendado ✨</h3>
+    <!-- Recomendado para ti -->
+    <div>
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-lg font-bold text-on-surface">Recomendado <span class="text-primary">✨</span></h3>
+        <a href="#" class="text-xs text-primary font-bold hover:underline">Ver más &gt;</a>
+      </div>
       <div class="space-y-4">
         <% [
-          {title: 'Significado de cada carta', cat: 'Guía'},
-          {title: 'Tarot para el amor', cat: 'Amor'}
+          {title: 'Guía completa: Significado de cada carta del Tarot', cat: 'Guía', catColor: 'bg-primary/10 text-primary'},
+          {title: '¿Cómo hacer una tirada de Tarot para el amor?', cat: 'Amor', catColor: 'bg-rose-passion/10 text-rose-passion'},
+          {title: 'El Tarot y los signos del zodiaco: descubre tu carta', cat: 'Astrología', catColor: 'bg-cyan-ethereal/10 text-cyan-ethereal'}
         ].each do |post| %>
           <div class="flex gap-4 p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all cursor-pointer">
-            <div class="w-16 h-16 bg-zinc-800 rounded-xl"></div>
-            <div>
-              <h4 class="text-sm font-bold text-white"><%= post[:title] %></h4>
-              <span class="text-[10px] text-mystic-violet font-bold"><%= post[:cat] %></span>
+            <div class="w-16 h-16 bg-surface-dark rounded-xl shrink-0"></div>
+            <div class="flex-1 min-w-0">
+              <h4 class="text-sm font-bold text-on-surface line-clamp-2"><%= post[:title] %></h4>
+              <span class="text-[10px] <%= post[:catColor] %> font-bold px-1.5 py-0.5 rounded mt-2 inline-block"><%= post[:cat] %></span>
             </div>
           </div>
         <% end %>
       </div>
     </div>
-  </div>
+  </section>
 </div>

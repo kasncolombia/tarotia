@@ -68,7 +68,7 @@
 
 @layer base {
   body {
-    @apply bg-cosmic-black text-white font-sans;
+    @apply bg-background text-on-surface font-sans;
   }
 
   /* Custom Scrollbar Styles */
@@ -94,6 +94,58 @@
     scrollbar-width: thin;
     scrollbar-color: rgba(124, 58, 237, 0.2) transparent;
   }
+}
+
+/* Light theme overrides */
+html:not(.dark) {
+  --color-background: #f8f7ff;
+  --color-cosmic-black: #f0eef8;
+  --color-surface: #ffffff;
+  --color-surface-container: #f0eef8;
+  --color-surface-container-low: #f5f3ff;
+  --color-surface-container-high: #e8e4f0;
+  --color-surface-container-highest: #ddd8e8;
+  --color-surface-container-lowest: #faf9ff;
+  --color-surface-variant: #ddd8e8;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #e8e4f0;
+  --color-on-surface: #1a1a2e;
+  --color-on-surface-variant: #4a4455;
+  --color-outline: #8a8498;
+  --color-outline-variant: #c4bfd0;
+  --color-on-background: #1a1a2e;
+  --color-surface-dark: #f0eef8;
+  --color-night-indigo: #ede9fe;
+  --color-indigo-night-700: #7c3aed;
+  --color-indigo-night-800: #6d28d9;
+  --color-inverse-surface: #1a1a2e;
+  --color-inverse-on-surface: #f8f7ff;
+  --color-text: #1a1a2e;
+  --color-on-primary-fixed: #f8f7ff;
+  --color-white: #1a1a2e;
+}
+
+html:not(.dark) .glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 238, 248, 0.6) 100%);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+html:not(.dark) .glass-card:hover {
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+html:not(.dark) .bg-zinc-800 {
+  background-color: #e8e4f0;
+}
+
+html:not(.dark) .text-zinc-400,
+html:not(.dark) .text-zinc-500 {
+  color: #6b6580;
+}
+
+html:not(.dark) .glass-input {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 @layer components {

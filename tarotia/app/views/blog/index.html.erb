@@ -1,14 +1,19 @@
 <div class="space-y-gutter pb-24">
   <!-- Header & Search -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-    <div>
-      <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface font-bold mb-2">Blog &amp; Guías</h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Explora los misterios del tarot, aprende nuevas tiradas y descubre cómo la inteligencia artificial está transformando la adivinación.</p>
+  <div class="relative pt-8 pb-8">
+    <div class="absolute top-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <span class="font-label-mono text-label-mono text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20 uppercase tracking-wider mb-4 inline-block">Blog y Conocimiento</span>
+        <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface font-bold mb-2">Blog &amp; Guías</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Explora los misterios del tarot, aprende nuevas tiradas y descubre cómo la inteligencia artificial está transformando la adivinación.</p>
+      </div>
+      <div class="w-full md:w-80 glass-input rounded-lg flex items-center px-4 py-3 transition-all">
+        <span class="material-symbols-outlined text-primary mr-3">search</span>
+        <input class="bg-transparent border-none text-on-surface font-body-md text-body-md w-full focus:outline-none focus:ring-0 placeholder-outline-variant" placeholder="Buscar artículos, guías..." type="text"/>
+      </div>
     </div>
-    <div class="w-full md:w-80 glass-input rounded-lg flex items-center px-4 py-3 transition-all">
-      <span class="material-symbols-outlined text-outline mr-3">search</span>
-      <input class="bg-transparent border-none text-on-surface font-body-md text-body-md w-full focus:outline-none focus:ring-0 placeholder-outline-variant" placeholder="Buscar artículos, guías..." type="text"/>
-    </div>
+    <div class="h-px bg-gradient-to-r from-primary/40 via-transparent to-transparent mt-8"></div>
   </div>
 
   <!-- Hero Featured Article -->

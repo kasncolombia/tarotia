@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get 'blog/:slug', to: 'blog#show', as: :blog_post
 
   get 'login', to: 'auth#login', as: :login
+  post 'login', to: 'auth#create'
   get 'registro', to: 'auth#registro', as: :registro
+  get 'logout', to: 'auth#destroy', as: :logout
   get 'perfil', to: 'profiles#show', as: :perfil
 
   # Health check

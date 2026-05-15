@@ -1,0 +1,26 @@
+<header class="relative z-20 bg-surface/60 backdrop-blur-xl border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="<%= root_path %>" class="flex items-center gap-3 group cursor-pointer">
+        <div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center shadow-lg shadow-primary-container/20 group-hover:scale-105 transition-transform shrink-0">
+          <span class="material-symbols-outlined text-on-primary-container text-xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+        </div>
+        <div class="leading-tight">
+          <p class="text-lg font-bold text-on-surface tracking-tight">TAROT IA</p>
+          <span class="text-[10px] text-on-surface-variant uppercase tracking-widest block mt-0.5">Tu destino, revelado</span>
+        </div>
+      </a>
+
+      <nav class="flex items-center gap-6">
+        <a href="<%= root_path %>" class="text-sm text-on-surface-variant hover:text-primary transition-colors">Inicio</a>
+        <a href="<%= blog_path %>" class="text-sm text-on-surface-variant hover:text-primary transition-colors">Blog</a>
+        <a href="<%= categories_path %>" class="text-sm text-on-surface-variant hover:text-primary transition-colors">Categorías</a>
+        <% if local_assigns[:active] == 'login' %>
+          <a href="<%= registro_path %>" class="px-5 py-2 text-sm font-semibold text-white bg-primary-container rounded-lg hover:bg-primary-container/90 hover:shadow-lg hover:shadow-primary-container/30 transition-all">Crear cuenta</a>
+        <% else %>
+          <a href="<%= login_path %>" class="px-5 py-2 text-sm font-semibold text-white bg-primary-container rounded-lg hover:bg-primary-container/90 hover:shadow-lg hover:shadow-primary-container/30 transition-all">Iniciar sesión</a>
+        <% end %>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -29,7 +29,7 @@
           <span class="material-symbols-outlined text-[16px]">schedule</span> <%= @post.reading_time %> lectura
         </span>
       </div>
-      <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 text-balance"><%= @post.title %></h1>
+      <h1 class="text-3xl md:text-[44px] md:leading-tight font-extrabold text-on-surface mb-6 text-balance bg-gradient-to-r from-primary via-gold-mystic to-primary bg-clip-text text-transparent"><%= @post.title %></h1>
       <div class="flex items-center justify-between border-y border-white/5 py-4">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
@@ -52,7 +52,7 @@
     </header>
 
     <!-- Article Body -->
-    <div class="prose prose-invert max-w-none">
+    <div class="prose prose-invert max-w-none px-4 md:px-0">
       <% @post.content.split("\n\n").each do |paragraph| %>
         <% if paragraph.start_with?('"') && paragraph.end_with?('"') %>
           <blockquote class="border-l-4 border-primary pl-6 py-2 my-8 bg-surface-container-lowest/30 italic">
